@@ -1,0 +1,90 @@
+# depslib dependency file v1.0
+1630878048 source:c:\users\teoko\desktop\algo3\a_iii_tp_i\algoritmos\backtracking.cpp
+	"backtracking.h"
+
+1630877815 c:\users\teoko\desktop\algo3\a_iii_tp_i\algoritmos\backtracking.h
+	<iostream>
+	<set>
+	<vector>
+	<utility>
+	<algorithm>
+	<functional>
+	"../Tipos/Tipos.h"
+	"configuraciones.h"
+
+1630867460 source:c:\users\teoko\desktop\algo3\a_iii_tp_i\algoritmos\fuerza_bruta.cpp
+	"fuerza_bruta.h"
+
+1630873627 c:\users\teoko\desktop\algo3\a_iii_tp_i\algoritmos\fuerza_bruta.h
+	<vector>
+	"../Tipos/Tipos.h"
+
+1630862751 c:\users\teoko\desktop\algo3\a_iii_tp_i\tipos\tipos.h
+	<algorithm>
+	"Local.h"
+
+1630871813 c:\users\teoko\desktop\algo3\a_iii_tp_i\tipos\local.h
+	<algorithm>
+	<vector>
+
+1630871881 source:c:\users\teoko\desktop\algo3\a_iii_tp_i\tipos\local.cpp
+	"local.h"
+
+1630877830 source:c:\users\teoko\desktop\algo3\a_iii_tp_i\main.cpp
+	<iostream>
+	<fstream>
+	<chrono>
+	"Tipos/Tipos.h"
+	"Utilidades/salida_consola.hpp"
+	"Algoritmos/fuerza_bruta.h"
+	"Algoritmos/backtracking.h"
+
+1630807826 source:c:\users\teoko\desktop\algo3\a_iii_tp_i\utilities\cronometro.cpp
+	<functional>
+	<iostream>
+	<algorithm>
+	<vector>
+	<chrono>
+
+1630863341 source:c:\users\teoko\desktop\algo3\a_iii_tp_i\utilities\helper.cpp
+	<vector>
+
+1630867951 source:c:\users\teoko\desktop\algo3\a_iii_tp_i\algoritmos\configuraciones.cpp
+	<set>
+	<vector>
+	"configuraciones.h"
+
+1630873584 c:\users\teoko\desktop\algo3\a_iii_tp_i\algoritmos\configuraciones.h
+	<set>
+	<vector>
+	"../Utilidades/helper.h"
+	"../Algoritmos/fuerza_bruta.h"
+
+1630807826 source:c:\users\teoko\desktop\algo3\a_iii_tp_i\utilidades\cronometro.cpp
+	<functional>
+	<iostream>
+	<algorithm>
+	<vector>
+	<chrono>
+
+1630863341 source:c:\users\teoko\desktop\algo3\a_iii_tp_i\utilidades\helper.cpp
+	<vector>
+
+1630864352 source:c:\users\teoko\desktop\algo3\a_iii_tp_i\utilidades\salida_consola.cpp
+	<ostream>
+	"salida_consola.h"
+
+1630864723 c:\users\teoko\desktop\algo3\a_iii_tp_i\utilidades\salida_consola.h
+	<ostream>
+	<set>
+	<vector>
+	"../Tipos/Tipos.h"
+
+1630873490 c:\users\teoko\desktop\algo3\a_iii_tp_i\utilidades\helper.h
+
+1630873519 c:\users\teoko\desktop\algo3\a_iii_tp_i\utilidades\salida_consola.hpp
+	<ostream>
+	<set>
+	<vector>
+	"../Tipos/Tipos.h"
+
