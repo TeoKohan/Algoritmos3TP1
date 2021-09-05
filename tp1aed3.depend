@@ -1,0 +1,63 @@
+# depslib dependency file v1.0
+1630882092 source:c:\users\pc\desktop\algoritmos3tp1\algoritmos\backtracking.cpp
+	"backtracking.h"
+
+1630882092 c:\users\pc\desktop\algoritmos3tp1\algoritmos\backtracking.h
+	<iostream>
+	<set>
+	<vector>
+	<utility>
+	<algorithm>
+	<functional>
+	"../Tipos/Tipos.h"
+	"configuraciones.h"
+
+1630882092 c:\users\pc\desktop\algoritmos3tp1\tipos\tipos.h
+	<algorithm>
+	"Local.h"
+
+1630882092 c:\users\pc\desktop\algoritmos3tp1\tipos\local.h
+	<algorithm>
+	<vector>
+
+1630882092 c:\users\pc\desktop\algoritmos3tp1\algoritmos\configuraciones.h
+	<set>
+	<vector>
+	"../Utilidades/helper.h"
+	"../Algoritmos/fuerza_bruta.h"
+
+1630882092 c:\users\pc\desktop\algoritmos3tp1\utilidades\helper.h
+
+1630882092 c:\users\pc\desktop\algoritmos3tp1\algoritmos\fuerza_bruta.h
+	<vector>
+	"../Tipos/Tipos.h"
+
+1630882092 source:c:\users\pc\desktop\algoritmos3tp1\algoritmos\configuraciones.cpp
+	<set>
+	<vector>
+	"configuraciones.h"
+
+1630882092 source:c:\users\pc\desktop\algoritmos3tp1\algoritmos\fuerza_bruta.cpp
+	"fuerza_bruta.h"
+
+1630882092 source:c:\users\pc\desktop\algoritmos3tp1\main.cpp
+	<iostream>
+	<fstream>
+	<chrono>
+	"Tipos/Tipos.h"
+	"Utilidades/salida_consola.hpp"
+	"Algoritmos/fuerza_bruta.h"
+	"Algoritmos/backtracking.h"
+
+1630882092 c:\users\pc\desktop\algoritmos3tp1\utilidades\salida_consola.hpp
+	<ostream>
+	<set>
+	<vector>
+	"../Tipos/Tipos.h"
+
+1630882092 source:c:\users\pc\desktop\algoritmos3tp1\tipos\local.cpp
+	"local.h"
+
+1630882092 source:c:\users\pc\desktop\algoritmos3tp1\utilidades\helper.cpp
+	<vector>
+
