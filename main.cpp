@@ -27,13 +27,5 @@ int main() {
     auto cotas_golosas = backtracking::cota_golosa(L, 0, n, M);
     std::cout << cotas_golosas << std::endl;
 
-    //std::cout << backtracking::tablas(100);
-    //set<vector<bool>> A = configuraciones::cantidad({vector<bool>(1, false)});
-
-    //std::cout << fuerza_bruta::espacio(A) << std::endl;
-    //std::cout << fuerza_bruta::espacio(B) << std::endl;
-
-    //cout << A << endl;
-
     return 0;
 }
