@@ -33,14 +33,16 @@ namespace configuraciones {
         }
     }
 
-    std::vector<std::set<std::vector<bool>>> llenar_tablas(int n) {
-        int k = std::max(helper::sqrt(n), MAX_TABLA);
-        std::vector<std::set<std::vector<bool>>> T(k, {{false}});
-        for (int i = 1; i <= k; ++i)
-            T[i] = configuraciones::configuraciones_maximas(i);
-        return T;
-    }
-
+    /**
+     *Devuelve el conjunto de vectores booleanos maximales para un cierto numero, esto es
+     *vectores que:
+     *1) cumplen la propiedad de no tener valores adyacentes
+     *2) dado un vector de naturales del mismo tamaño su producto interno puede maximizar la sumatoria del vector resultante
+     *@param[in] n la longitud de los vectores a buscar
+     *    configuraciones(3, V, T) = {{true, false, true}, {false, true, false}}
+     *    configuraciones(5, V, T) = {{true, false, true, false, true}, {true, false, false, true, false},
+     *                                {false, true, false, true, false}, {false, true, false, false, true}}
+     */
     std::set<std::vector<bool>> configuraciones_maximas(int n) {
         if (n == 1)
             return {{1}};

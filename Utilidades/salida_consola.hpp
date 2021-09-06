@@ -24,9 +24,4 @@ std::ostream& operator << (std::ostream& os, const std::set<T>& v) {
     return os;
 }
 
-std::ostream& operator << (std::ostream& os, const Local& local) {
-    os << '(' << "b: " << local.beneficio << ", c: " << local.contagio << ')';
-    return os;
-}
-
 #endif

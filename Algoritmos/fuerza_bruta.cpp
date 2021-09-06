@@ -11,17 +11,22 @@ namespace fuerza_bruta {
 
     bool adyacentes(const std::vector<bool>& V) {
         int i = 0;
-        while (i < V.size() && !(V[i++] && V[i]));
+        //while (i < V.size() && !(V[i++] && (i == V.size() || V[i])));
+        for (; i < V.size()-1; ++i)
+            if (V[i] && V[i+1])
+                return true;
+        return false;
         return i < V.size();
     }
 
     int mayor_beneficio(const Locales& L, int i, int M, std::vector<bool>& V) {
-        if (i < 0)
+        if (i >= L.size())
             return (M < 0 || adyacentes(V)) ? -INFINITO : 0;
         V[i] = false;
-        int B0 = mayor_beneficio(L, i-1, M, V);
+        int B0 = mayor_beneficio(L, i+1, M, V);
         V[i] = true;
-        int B1 = L[i].beneficio + mayor_beneficio(L, i-1, M-L[i].contagio, V);
+        int B1 = L[i].beneficio + mayor_beneficio(L, i+1, M-L[i].contagio, V);
+        //std::cout << "Local " << i << " beneficio " << L[i].beneficio << " beneficio acumulado " << B1 << std::endl;
         return std::max(B0, B1);
     }
 }

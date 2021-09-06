@@ -12,10 +12,10 @@ beneficio_contagio::beneficio_contagio(int beneficio, int contagio) {
 
 bool beneficio_contagio :: operator < (const beneficio_contagio& rhs) {
     if (this->beneficio < rhs.beneficio)
-        return false;
-    if (this->contagio < rhs.contagio)
-        return false;
-    return true;
+        return true;
+    else if (this->beneficio == rhs.beneficio && this->contagio > rhs.contagio)
+        return true;
+    return false;
 }
 
 bool operator < (const beneficio_contagio& lhs, const beneficio_contagio& rhs) {
@@ -33,12 +33,28 @@ beneficio_contagio beneficio_contagio :: operator + (const beneficio_contagio& r
     return res;
 }
 
-/*
-beneficio_contagio::beneficio_contagio operator * (const beneficio_contagio& a, int b) {
-    beneficio_contagio c = {a.beneficio * b, a.contagio * b};
-    return c;
+beneficio_contagio& beneficio_contagio :: operator -= (const beneficio_contagio& rhs) {
+    this->beneficio -= rhs.beneficio;
+    this->contagio -= rhs.contagio;
+    return *this;
 }
 
+beneficio_contagio beneficio_contagio :: operator - (const beneficio_contagio& rhs) {
+    beneficio_contagio res = {this->beneficio - rhs.beneficio, this->contagio - rhs.contagio};
+    return res;
+}
+
+beneficio_contagio operator * (const beneficio_contagio& lhs, int rhs) {
+    beneficio_contagio res = {lhs.beneficio * rhs, lhs.contagio * rhs};
+    return res;
+}
+
+std::ostream& operator << (std::ostream& os, const beneficio_contagio& rhs) {
+    os << '(' << "b: " << rhs.beneficio << ", c: " << rhs.contagio << ')';
+    return os;
+}
+
+/*
 beneficio_contagio::beneficio_contagio operator * (const vector<beneficio_contagio>& a, const vector<bool>& b) {
     beneficio_contagio s = {0, 0};
     for (int i = 0; i < a.size(); ++i)

@@ -1,4 +1,4 @@
-#include <vector>
+#include "helper.h"
 
 namespace helper{
     /**
@@ -21,10 +21,16 @@ namespace helper{
         return  i;
     }
 
-    int maximo_valor_vector (const std::vector<int>& V) {
-        int m = 0;
-        for (int v : V)
-            m = std::max(m, v);
-        return m;
+    /**
+     *Calcula el producto interno entre dos vectores
+     *@param[in] n el valor al cual se le calcula su raiz.
+     *    sqrt(24) = 4
+     *    sqrt(25) = 5
+     */
+    beneficio_contagio producto_interno (const std::vector<beneficio_contagio>& lhs, const std::vector<bool>& rhs) {
+        beneficio_contagio res = {0, 0};
+        for (int i = 0; i < lhs.size(); ++i)
+            res += lhs[i] * rhs[i];
+        return res;
     }
 }
