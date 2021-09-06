@@ -2,10 +2,7 @@
 
 namespace backtracking {
 
-    int cota_inferior;
-    int cota_superior;
-
-    beneficio_contagio cota_golosa (const Locales& L, int i, int j, int M) {
+    beneficio_contagio cota_inferior (const Locales& L, int i, int j, int M) {
         std::vector<std::pair<int, Local>> L_prima(j-i);
 
         int k;
@@ -19,12 +16,6 @@ namespace backtracking {
                 return false;
             }
         );
-
-
-        std::cout << "| ";
-        for (auto l : L_prima)
-            std::cout << "( b: " << l.second.beneficio << ", c: " << l.second.contagio << ") | ";
-        std::cout << std::endl;
 
         beneficio_contagio inf = {0, 0};
 
@@ -42,15 +33,22 @@ namespace backtracking {
         return inf;
     }
 
+    beneficio_contagio cota_superior (const Locales& L, int i, int j, int M, std::vector<std::set<std::vector<bool>>>& tablas) {
+
+    }
+
     int mayor_beneficio(const Locales& L, int n, int M) {
+        auto tablas = configuraciones::llenar_tablas(n);
+
+
         return 0;
     }
 
-    int mayor_beneficio_n(const Locales& L, int i, int M) {
+    int mayor_beneficio_n(const Locales& L, int i, int j, int M, beneficio_contagio inf, beneficio_contagio sup) {
         if (M < 0)
             return -INFINITO;
-        if (i < 0)
+        if (i >= j)
             return 0;
-        return std::max(L[i].beneficio + mayor_beneficio(L, i-2, M-L[i].contagio), mayor_beneficio(L, i-1, M));
+        return std::max(L[j].beneficio + mayor_beneficio(L, i+2, M-L[i].contagio), mayor_beneficio(L, i+1, M));
     }
 }

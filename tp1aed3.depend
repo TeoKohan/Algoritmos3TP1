@@ -61,3 +61,49 @@
 1630882092 source:c:\users\pc\desktop\algoritmos3tp1\utilidades\helper.cpp
 	<vector>
 
+1630884670 source:c:\users\teoko\desktop\algoritmos3tp1\algoritmos\configuraciones.cpp
+	"configuraciones.h"
+
+1630884754 c:\users\teoko\desktop\algoritmos3tp1\algoritmos\configuraciones.h
+	<set>
+	<vector>
+	"../Tipos/tipos.h"
+	"../Utilidades/helper.h"
+	"../Algoritmos/fuerza_bruta.h"
+
+1630884720 c:\users\teoko\desktop\algoritmos3tp1\tipos\tipos.h
+	<algorithm>
+	"Local.h"
+
+1630881945 c:\users\teoko\desktop\algoritmos3tp1\tipos\local.h
+	<algorithm>
+	<vector>
+
+1630873490 c:\users\teoko\desktop\algoritmos3tp1\utilidades\helper.h
+
+1630873627 c:\users\teoko\desktop\algoritmos3tp1\algoritmos\fuerza_bruta.h
+	<vector>
+	"../Tipos/Tipos.h"
+
+1630867460 source:c:\users\teoko\desktop\algoritmos3tp1\algoritmos\fuerza_bruta.cpp
+	"fuerza_bruta.h"
+
+1630871881 source:c:\users\teoko\desktop\algoritmos3tp1\tipos\local.cpp
+	"local.h"
+
+1630886348 source:c:\users\teoko\desktop\algoritmos3tp1\utilidades\helper.cpp
+	<vector>
+
+1630886005 source:c:\users\teoko\desktop\algoritmos3tp1\algoritmos\backtracking.cpp
+	"backtracking.h"
+
+1630884768 c:\users\teoko\desktop\algoritmos3tp1\algoritmos\backtracking.h
+	<iostream>
+	<set>
+	<vector>
+	<utility>
+	<algorithm>
+	<functional>
+	"../Tipos/Tipos.h"
+	"configuraciones.h"
+

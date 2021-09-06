@@ -3,6 +3,7 @@
 
 #include <set>
 #include <vector>
+#include "../Tipos/tipos.h"
 #include "../Utilidades/helper.h"
 #include "../Algoritmos/fuerza_bruta.h"
 

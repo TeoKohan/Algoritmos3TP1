@@ -24,7 +24,7 @@ int main() {
     std::cout << fuerza_bruta::mayor_beneficio(L, n, M, V) << std::endl;
 
     auto start = std::chrono::high_resolution_clock::now();
-    auto cotas_golosas = backtracking::cota_golosa(L, 0, n, M);
+    auto cotas_golosas = backtracking::cota_inferior(L, 0, n, M);
     std::cout << cotas_golosas << std::endl;
 
     return 0;
