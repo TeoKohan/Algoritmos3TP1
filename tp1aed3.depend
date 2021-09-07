@@ -1,65 +1,69 @@
 # depslib dependency file v1.0
-1630882092 source:c:\users\pc\desktop\algoritmos3tp1\algoritmos\backtracking.cpp
+1631053337 source:c:\users\pc\desktop\algoritmos3tp1\algoritmos\backtracking.cpp
 	"backtracking.h"
 
-1630882092 c:\users\pc\desktop\algoritmos3tp1\algoritmos\backtracking.h
+1631053337 c:\users\pc\desktop\algoritmos3tp1\algoritmos\backtracking.h
 	<iostream>
 	<set>
 	<vector>
 	<utility>
 	<algorithm>
 	<functional>
+	"../Utilidades/salida_consola.hpp"
 	"../Tipos/Tipos.h"
 	"configuraciones.h"
 
-1630882092 c:\users\pc\desktop\algoritmos3tp1\tipos\tipos.h
+1631053337 c:\users\pc\desktop\algoritmos3tp1\tipos\tipos.h
 	<algorithm>
+	<utility>
 	"Local.h"
 
-1630882092 c:\users\pc\desktop\algoritmos3tp1\tipos\local.h
+1631053337 c:\users\pc\desktop\algoritmos3tp1\tipos\local.h
+	<iostream>
 	<algorithm>
 	<vector>
 
-1630882092 c:\users\pc\desktop\algoritmos3tp1\algoritmos\configuraciones.h
+1631053337 c:\users\pc\desktop\algoritmos3tp1\algoritmos\configuraciones.h
 	<set>
 	<vector>
+	"../Tipos/tipos.h"
 	"../Utilidades/helper.h"
 	"../Algoritmos/fuerza_bruta.h"
 
-1630882092 c:\users\pc\desktop\algoritmos3tp1\utilidades\helper.h
+1631053337 c:\users\pc\desktop\algoritmos3tp1\utilidades\helper.h
+	"../Tipos/Tipos.h"
 
 1630882092 c:\users\pc\desktop\algoritmos3tp1\algoritmos\fuerza_bruta.h
 	<vector>
 	"../Tipos/Tipos.h"
 
-1630882092 source:c:\users\pc\desktop\algoritmos3tp1\algoritmos\configuraciones.cpp
-	<set>
-	<vector>
+1631053337 source:c:\users\pc\desktop\algoritmos3tp1\algoritmos\configuraciones.cpp
 	"configuraciones.h"
 
-1630882092 source:c:\users\pc\desktop\algoritmos3tp1\algoritmos\fuerza_bruta.cpp
+1631053337 source:c:\users\pc\desktop\algoritmos3tp1\algoritmos\fuerza_bruta.cpp
 	"fuerza_bruta.h"
 
-1630882092 source:c:\users\pc\desktop\algoritmos3tp1\main.cpp
+1631053337 source:c:\users\pc\desktop\algoritmos3tp1\main.cpp
 	<iostream>
 	<fstream>
 	<chrono>
 	"Tipos/Tipos.h"
 	"Utilidades/salida_consola.hpp"
+	"Utilidades/generador.h"
 	"Algoritmos/fuerza_bruta.h"
 	"Algoritmos/backtracking.h"
 
-1630882092 c:\users\pc\desktop\algoritmos3tp1\utilidades\salida_consola.hpp
+1631053337 c:\users\pc\desktop\algoritmos3tp1\utilidades\salida_consola.hpp
 	<ostream>
 	<set>
 	<vector>
 	"../Tipos/Tipos.h"
 
-1630882092 source:c:\users\pc\desktop\algoritmos3tp1\tipos\local.cpp
+1631053337 source:c:\users\pc\desktop\algoritmos3tp1\tipos\local.cpp
 	"local.h"
 
-1630882092 source:c:\users\pc\desktop\algoritmos3tp1\utilidades\helper.cpp
-	<vector>
+1631053337 source:c:\users\pc\desktop\algoritmos3tp1\utilidades\helper.cpp
+	"helper.h"
 
 1630892593 source:c:\users\teoko\desktop\algoritmos3tp1\algoritmos\configuraciones.cpp
 	"configuraciones.h"
@@ -139,4 +143,17 @@
 	<cmath>
 	<stdlib.h>
 	"../Tipos/Tipos.h"
+
+1631053337 c:\users\pc\desktop\algoritmos3tp1\utilidades\generador.h
+	<iostream>
+	<iomanip>
+	<string>
+	<map>
+	<random>
+	<cmath>
+	<stdlib.h>
+	"../Tipos/Tipos.h"
+
+1631053337 source:c:\users\pc\desktop\algoritmos3tp1\utilidades\generador.cpp
+	"generador.h"
 
