@@ -15,7 +15,7 @@ namespace configuraciones {
          *    configuraciones(5, V, T) = {{true, false, true, false, true}, {true, false, false, true, false},
          *                                {false, true, false, true, false}, {false, true, false, false, true}}
          */
-        void configuraciones(int i, std::vector<bool>& V, std::set<std::vector<bool>>& T) {
+        void configuraciones (int i, std::vector<bool>& V, std::set<std::vector<bool>>& T) {
             if (i < 0) {
                 if (!fuerza_bruta::adyacentes(V) && fuerza_bruta::espacio(V) == V.size())
                     T.insert(V);

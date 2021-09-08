@@ -17,55 +17,51 @@ std::ostream& operator << (std::ostream& os, const Problema& p) {
     return os;
 }
 
+int resolver_fb(Locales L, int M, bool log = true) {
+    auto start = std::chrono::high_resolution_clock::now();
+    std::vector<bool> V(L.size());
+    int res = fuerza_bruta::mayor_beneficio(L, 0, M, V);
+    auto stop = std::chrono::high_resolution_clock::now();
+    auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop-start);
+    int duration_int = duration.count();
+
+    std::cout << "la duracion de FB  es " << duration_int << " con un resultado de " << res << std::endl;
+    return res;
+}
+
+int resolver_bck(Locales L, int M, bool log = true) {
+    auto start = std::chrono::high_resolution_clock::now();
+    int res = backtracking::mayor_beneficio(L, M);
+    auto stop = std::chrono::high_resolution_clock::now();
+    auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop-start);
+    int duration_int = duration.count();
+
+    std::cout << "la duracion de BCK es " << duration_int << " con un resultado de " << res << std::endl;
+    return res;
+}
+
 int main() {
 
-    int n = 25;
-    float mean = 10;
+    //std::cout
+
+    Locales PROB = { {27, 31}, {21, 10}, {22, 25}, {16, 20}, {14, 26}, {2, 1}, {24, 28}, {6, 0}, {25, 34}, {25, 26}, {22, 12}, {22, 16}, {12, 17}, {19, 6}, {21, 26}, {6, 17}, {25, 18}, {24, 20}, {26, 10}, {30, 14} };
+    int PROB_M = 75;
+
+    int n = 5;
+    float mean = 20;
     float sd = 10;
-    float diff = 2;
-    auto P = generador::generar_problemas(n, 100, mean, sd, diff);
-
-    /*
-    std::vector<Local> malo {
-        {26, 2}, {7, 2}, {11, 4}, {1, 19}, {29, 21}
-    };
-    int M_malo = 23;
-
-    std::cout << malo << "   " << M_malo << std::endl;
-
-    std::vector<bool> V_malo(malo.size());
-    std::cout << fuerza_bruta::mayor_beneficio(malo, 0, M_malo, V_malo) << std::endl;
-    std::cout << backtracking::mayor_beneficio(malo, n, M_malo) << std::endl;
-    int a;
-    std::cin >> a;*/
-
-
-
-    int fb;
-    int fb_r;
-    int bck;
-    int bck_r;
+    float diff = 1;
+    auto P = generador::generar_problemas(n, 1000, mean, sd, diff);
 
     for (auto p : P) {
         int M = p.first;
         auto L = p.second;
-
-        auto start = std::chrono::high_resolution_clock::now();
-        std::vector<bool> V(L.size());
-        fb_r = fuerza_bruta::mayor_beneficio(L, 0, M, V);
-        auto stop = std::chrono::high_resolution_clock::now();
-        auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop-start);
-        fb = duration.count();
-        auto start_b = std::chrono::high_resolution_clock::now();
-        bck_r = backtracking::mayor_beneficio(L, n, M);
-        auto stop_b = std::chrono::high_resolution_clock::now();
-        auto duration_b = std::chrono::duration_cast<std::chrono::milliseconds>(stop_b-start_b);
-        bck = duration_b.count();
-
         std::cout << p << std::endl;
-        std::cout << "la duracion de FB es " << fb << " con un resultado de " << fb_r << std::endl;
-        std::cout << "la duracion de BCK es " << bck << " con un resultado de " << bck_r << std::endl;
-        std::cout << std::endl << std::endl;
+        int fb = resolver_fb(L, M);
+        int bck = resolver_bck(L, M);
+        if (fb != bck)
+            std::cin >> fb;
+        std::cout << std::endl;
     }
 
     /*
