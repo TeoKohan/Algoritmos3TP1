@@ -1,5 +1,5 @@
-#ifndef BCKTRCK_NPM
-#define BCKTRCK_NPM
+#ifndef BCKTRCK_NAIF_NPM
+#define BCKTRCK_NAIF_NPM
 
 #include <iostream>
 
@@ -11,10 +11,9 @@
 
 #include "../Utilidades/salida_consola.hpp"
 #include "../Tipos/Tipos.h"
-#include "configuraciones.h"
 #include "greedy.h"
 
-namespace backtracking {
+namespace backtracking_naif {
     int mayor_beneficio(const Locales& L, int M);
 }
 

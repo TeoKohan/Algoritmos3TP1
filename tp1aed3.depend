@@ -97,10 +97,10 @@
 1630897973 source:c:\users\teoko\desktop\algoritmos3tp1\utilidades\helper.cpp
 	"helper.h"
 
-1631063485 source:c:\users\teoko\desktop\algoritmos3tp1\algoritmos\backtracking.cpp
+1631065994 source:c:\users\teoko\desktop\algoritmos3tp1\algoritmos\backtracking.cpp
 	"backtracking.h"
 
-1631063628 c:\users\teoko\desktop\algoritmos3tp1\algoritmos\backtracking.h
+1631065788 c:\users\teoko\desktop\algoritmos3tp1\algoritmos\backtracking.h
 	<iostream>
 	<set>
 	<vector>
@@ -110,8 +110,9 @@
 	"../Utilidades/salida_consola.hpp"
 	"../Tipos/Tipos.h"
 	"configuraciones.h"
+	"greedy.h"
 
-1631063512 source:c:\users\teoko\desktop\algoritmos3tp1\main.cpp
+1631065246 source:c:\users\teoko\desktop\algoritmos3tp1\main.cpp
 	<iostream>
 	<fstream>
 	<chrono>
@@ -119,7 +120,9 @@
 	"Utilidades/salida_consola.hpp"
 	"Utilidades/generador.h"
 	"Algoritmos/fuerza_bruta.h"
+	"Algoritmos/greedy.h"
 	"Algoritmos/backtracking.h"
+	"Algoritmos/backtracking_naif.h"
 
 1630906969 c:\users\teoko\desktop\algoritmos3tp1\utilidades\salida_consola.hpp
 	<ostream>
@@ -138,5 +141,43 @@
 	<random>
 	<cmath>
 	<stdlib.h>
+	"../Tipos/Tipos.h"
+
+1631066124 source:c:\users\teoko\desktop\algoritmos3tp1\algoritmos\backtracking_naif.cpp
+	"backtracking_naif.h"
+
+1631065278 c:\users\teoko\desktop\algoritmos3tp1\algoritmos\backtracking_naif.h
+	<iostream>
+	<set>
+	<vector>
+	<utility>
+	<algorithm>
+	<functional>
+	"../Utilidades/salida_consola.hpp"
+	"../Tipos/Tipos.h"
+	"greedy.h"
+
+1631064599 source:c:\users\teoko\desktop\algoritmos3tp1\algoritmos\backtrackingnaif.cpp
+	"backtrackingnaif.h"
+
+1631064596 c:\users\teoko\desktop\algoritmos3tp1\algoritmos\backtrackingnaif.h
+	<iostream>
+	<set>
+	<vector>
+	<utility>
+	<algorithm>
+	<functional>
+	"../Utilidades/salida_consola.hpp"
+	"../Tipos/Tipos.h"
+
+1631065175 source:c:\users\teoko\desktop\algoritmos3tp1\algoritmos\greedy.cpp
+	"greedy.h"
+
+1631064889 c:\users\teoko\desktop\algoritmos3tp1\algoritmos\greedy.h
+	<set>
+	<vector>
+	<utility>
+	<algorithm>
+	<functional>
 	"../Tipos/Tipos.h"
 

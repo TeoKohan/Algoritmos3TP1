@@ -2,8 +2,8 @@
 
 namespace backtracking {
 
-    beneficio_contagio inf;
-    std::vector<beneficio_contagio> sup;
+    int inf;
+    std::vector<int> sup;
 
     namespace {
         beneficio_contagio cota_inferior (const Locales& L, int i, int j, int M) {
@@ -37,11 +37,11 @@ namespace backtracking {
             return s;
         }
 
-        std::vector<beneficio_contagio> cota_superior (const Locales& L, int i, int j) {
+        std::vector<int> cota_superior (const Locales& L, int i, int j) {
             int n = j-i;
             int k = helper::sqrt(n);
             auto patrones = configuraciones::configuraciones_maximas(k);
-            std::vector<beneficio_contagio> A;
+            std::vector<int> A;
             for (int r = i; r < j; r += k) {
                 std::vector<beneficio_contagio> candidatos;
                 std::vector<beneficio_contagio> bloque(L.begin()+i+r, L.begin()+std::min(i+r+k, j));
@@ -51,45 +51,33 @@ namespace backtracking {
                 //std::cout << "el maximo de: " << candidatos << " es ";
                 auto m = *std::max_element(candidatos.begin(), candidatos.end());
                 //std::cout << m << std::endl;
-                A.push_back(m);
+                A.push_back(m.beneficio);
             }
             for (int r = 0; r < A.size(); ++r)
-                A[r] += (r > 0 ? A[r-1] : Local());
-            A.insert(A.begin(), {0, 0});
+                A[r] += (r > 0 ? A[r-1] : 0);
+            A.insert(A.begin(), 0);
             return A;
         }
 
-        beneficio_contagio cota_superior_2 (const Locales& L, int i) {
-            beneficio_contagio s = {0, 0};
-            for (; i < L.size(); ++i)
-                s += L[i];
-
-            std::cout << s << "asignando" << std::endl;
-            return s;
-        }
-
-
-
-        int mayor_beneficio_R(const Locales& L, int i, int M, beneficio_contagio A) {
-            if (M < 0)
+        int mayor_beneficio_R(const Locales& L, int i, beneficio_contagio A) {
+            if (A.contagio < 0)
                 return -INFINITO;
-            if (inf < A)
-                    inf = A;
+            if (inf < A.beneficio)
+                    inf = A.beneficio;
             //std::cout << "en posicion " << i << " suma " << A << " + " << *(sup.end()-1) << " - " << sup[i/helper::sqrt(L.size())] << " < " << inf << std::endl;
             if (i >= L.size())
                 return 0;
-            if (A + *(sup.end()-1) - sup[i/helper::sqrt(L.size())] < inf)
+            if (A.beneficio + *(sup.end()-1) - sup[i/helper::sqrt(L.size())] < inf)
                 return -INFINITO;
-            return std::max(L[i].beneficio + mayor_beneficio_R(L, i+2, M-L[i].contagio, A+L[i]), mayor_beneficio_R(L, i+1, M, A));
+            beneficio_contagio T(L[i].beneficio, -L[i].contagio);
+            return std::max(L[i].beneficio + mayor_beneficio_R(L, i+2, A + T), mayor_beneficio_R(L, i+1, A));
         }
     }
 
     int mayor_beneficio(const Locales& L, int M) {
-        inf = cota_inferior(L, 0, L.size(), M);
-        //std::cout << "cota inferior: " << inf << std::endl;
+        inf = greedy::mayor_beneficio(L, M);
         sup = cota_superior(L, 0, L.size());
-        //std::cout << "cota superior: " << sup << std::endl;
-        mayor_beneficio_R(L, 0, M, {0, 0});
-        return inf.beneficio;
+        mayor_beneficio_R(L, 0, {0, M});
+        return inf;
     }
 }
