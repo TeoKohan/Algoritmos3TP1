@@ -10,6 +10,7 @@
 #include "Algoritmos/greedy.h"
 #include "Algoritmos/backtracking.h"
 #include "Algoritmos/backtracking_naif.h"
+#include "Algoritmos/dinamica.h"
 
 std::ostream& operator << (std::ostream& os, const Problema& p) {
     os << "Problema [";
@@ -68,6 +69,18 @@ int resolver_bck_n(Locales L, int M, bool log = true) {
     return res;
 }
 
+int resolver_dp(Locales L, int M, bool log = true) {
+    auto start = std::chrono::high_resolution_clock::now();
+    int res = dinamica::mayor_beneficio(L, M);
+    auto stop = std::chrono::high_resolution_clock::now();
+    auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop-start);
+    int duration_int = duration.count();
+
+    if (log)
+    std::cout << "la duracion de DP    es " << duration_int << " con un resultado de " << res << std::endl;
+    return res;
+}
+
 int main() {
 
     //std::cout
@@ -77,13 +90,13 @@ int main() {
     int PROB_M = 928;
 
     //resolver_fb(PROB, PROB_M);
-    resolver_bck(PROB, PROB_M);
-    resolver_bck_n(PROB, PROB_M);
+    //resolver_bck(PROB, PROB_M);
+    //resolver_bck_n(PROB, PROB_M);
 
-    int n = 50;
+    int n = 100;
     float mean = 20;
-    float sd = 100;
-    float diff = 1;
+    float sd = 10;
+    float diff = 3;
     auto P = generador::generar_problemas(n, 1000, mean, sd, diff);
 
 
@@ -95,7 +108,8 @@ int main() {
         //int fb = resolver_fb(L, M, true);
         int greed = resolver_greedy(L, M, true);
         int bck = resolver_bck(L, M, true);
-        int bck_n = resolver_bck_n(L, M, true);
+        //int bck_n = resolver_bck_n(L, M, true);
+        int dp = resolver_dp(L, M, true);
         std::cout << std::endl;
     }
 

@@ -45,7 +45,6 @@ namespace backtracking_naif {
         }
 
         int mayor_beneficio_R(const Locales& L, int i, beneficio_contagio A) {
-            c++;
             if (A.contagio < 0)
                 return -INFINITO;
             if (inf < A.beneficio)
@@ -61,9 +60,7 @@ namespace backtracking_naif {
 
     int mayor_beneficio(const Locales& L, int M) {
         inf = greedy::mayor_beneficio(L, M);
-        c = 0;
         mayor_beneficio_R(L, 0, {0, M});
-        //std::cout << "llamados N: " << c << std::endl;
         return inf;
     }
 }

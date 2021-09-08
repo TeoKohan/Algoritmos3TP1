@@ -6,8 +6,15 @@ namespace dinamica {
 
     namespace {
 
-        int mayor_beneficio_R(const Locales& L, int i, int M) {
-            return 0;
+        int mayor_beneficio_R(const Locales& L, std::vector<std::vector<int>>& O, int n, int M) {
+            if (M < 0)
+                return -INFINITO;
+            if (n < 0)
+                return 0;
+            if (O[n][M] == BOTTOM) {
+                O[n][M] = std::max(L[n].beneficio + mayor_beneficio_R(L, O, n-2, M-L[n].contagio), mayor_beneficio_R(L, O, n-1, M));
+            }
+            return O[n][M];
         }
 
     }
@@ -15,11 +22,7 @@ namespace dinamica {
 
     int mayor_beneficio (const Locales& L, int M) {
         int n = L.size();
-        int O[n][M];
-        for (int i = 0; i < n; ++i)
-            for (int j = 0; j < M; ++i)
-                O[i][j] = BOTTOM;
-
-        mayor_beneficio_R(L, n, M);
+        std::vector<std::vector<int>> O(n+1, std::vector<int>(M+1, BOTTOM));
+        return mayor_beneficio_R(L, O, n-1, M);
     }
 }

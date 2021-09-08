@@ -5,8 +5,6 @@ namespace generador {
     Problema generar_problema(int n, float densidad, float varianza, float dificultad, int seed) {
         std::mt19937 gen{seed};
 
-        // values near the mean are the most likely
-        // standard deviation affects the dispersion of generated values from the mean
         std::normal_distribution<> beneficio{densidad, varianza};
         std::normal_distribution<> costo{densidad, varianza};
         std::normal_distribution<> M{densidad * n / (dificultad*dificultad), varianza};
