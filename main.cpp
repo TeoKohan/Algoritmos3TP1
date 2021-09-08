@@ -20,6 +20,18 @@ std::ostream& operator << (std::ostream& os, const Problema& p) {
     return os;
 }
 
+std::set<std::vector<bool>> resolver_max(int n, bool log = true) {
+    auto start = std::chrono::high_resolution_clock::now();
+    auto res = configuraciones::configuraciones_maximas(n);
+    auto stop = std::chrono::high_resolution_clock::now();
+    auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop-start);
+    int duration_int = duration.count();
+
+    if (log)
+    std::cout << "la duracion de MAXIM es " << duration_int << " con un resultado de " << res.size() << std::endl;
+    return res;
+}
+
 int resolver_fb(Locales L, int M, bool log = true) {
     auto start = std::chrono::high_resolution_clock::now();
     std::vector<bool> V(L.size());
@@ -83,8 +95,6 @@ int resolver_dp(Locales L, int M, bool log = true) {
 
 int main() {
 
-    //std::cout
-
     Locales PROB = { {9, 56}, {34, 0}, {149, 46}, {69, 13}, {46, 54}, {2, 135}, {97, 227}, {132, 4}, {3, 21}, {12, 60}, {12, 24}, {72, 158}, {72, 3}, {65, 45}, {42, 18}, {80, 100}, {160, 175}, {45, 74}, {143, 96}, {98, 147}, {8, 187}, {154, 86}, {129, 82}, {156, 43}, {112, 4}, {3, 194}, {3, 58}, {54, 112}, {15, 28}, {41, 108}, {57, 42}, {17, 56}, {24, 7}, {32, 82}, {3, 42}, {15, 28}, {152, 73}, {130, 15}, {37, 21}, {85, 52}, {116, 59}, {222, 9}, {199, 139}, {27, 26}, {62, 20}, {36, 9}, {16, 55}, {2, 15}, {114, 100}, {85, 143} };
 
     int PROB_M = 928;
@@ -92,24 +102,33 @@ int main() {
     //resolver_fb(PROB, PROB_M);
     //resolver_bck(PROB, PROB_M);
     //resolver_bck_n(PROB, PROB_M);
+    resolver_dp(PROB, PROB_M);
 
-    int n = 100;
-    float mean = 20;
+    int n = 50;
+    float mean = 15;
     float sd = 10;
-    float diff = 3;
+    float diff = 2;
     auto P = generador::generar_problemas(n, 1000, mean, sd, diff);
 
-
+    for (int i = 1; i < 30; ++i) {
+        auto K = generador::generar_problemas(n, 1, mean, sd, diff);
+        int fb = resolver_fb(K[0].second, INFINITO, true);
+        auto maxim = resolver_max(i, true);
+    }
 
     for (auto p : P) {
         int M = p.first;
         auto L = p.second;
         std::cout << p << std::endl;
         //int fb = resolver_fb(L, M, true);
-        int greed = resolver_greedy(L, M, true);
+        //int greed = resolver_greedy(L, M, true);
         int bck = resolver_bck(L, M, true);
         //int bck_n = resolver_bck_n(L, M, true);
         int dp = resolver_dp(L, M, true);
+        if (bck != dp) {
+            std::cout << "MAL!" << std::endl;
+            std::cin >> M;
+        }
         std::cout << std::endl;
     }
 

@@ -11,11 +11,7 @@ namespace fuerza_bruta {
 
     bool adyacentes(const std::vector<bool>& V) {
         int i = 0;
-        //while (i < V.size() && !(V[i++] && (i == V.size() || V[i])));
-        for (; i < V.size()-1; ++i)
-            if (V[i] && V[i+1])
-                return true;
-        return false;
+        while (i < V.size() && !(V[i++] && (i == V.size() || V[i])));
         return i < V.size();
     }
 
@@ -26,7 +22,6 @@ namespace fuerza_bruta {
         int B0 = mayor_beneficio(L, i+1, M, V);
         V[i] = true;
         int B1 = L[i].beneficio + mayor_beneficio(L, i+1, M-L[i].contagio, V);
-        //std::cout << "Local " << i << " beneficio " << L[i].beneficio << " beneficio acumulado " << B1 << std::endl;
         return std::max(B0, B1);
     }
 }
