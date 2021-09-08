@@ -32,7 +32,7 @@ namespace backtracking {
 
             for (int i = 0; i < n; i += k) {
                 std::vector<beneficio_contagio> candidatos;
-                std::vector<beneficio_contagio> bloque(L.begin()+i, L.begin()+i+k);
+                std::vector<beneficio_contagio> bloque(L.begin()+i, L.begin()+std::min(i+k, n));
                 int m = 0;
                 for (auto p : patrones)
                     m = std::max(m, helper::producto_interno(bloque, p).beneficio);
@@ -44,25 +44,28 @@ namespace backtracking {
             return A;
         }
 
-        int sub_mayor_beneficio (const Locales& L, int i) {
-        if (i >= L.size())
+        int sub_mayor_beneficio (const Locales& L, int i, int j) {
+        if (i >= j)
             return 0;
-        int B0 = mayor_beneficio(L, i+1);
-        int B1 = L[i].beneficio + mayor_beneficio(L, i+2);
+        int B0 = sub_mayor_beneficio(L, i+1, j);
+        int B1 = L[i].beneficio + sub_mayor_beneficio(L, i+2, j);
         return std::max(B0, B1);
         }
 
-        std::vector<int> cota_superior_2 (const Locales& L) {
+        std::vector<int> cota_superior_2 (const Locales& L, int k) {
             int n = L.size();
-            int k = helper::sqrt(n);
+            k = std::max(k, n);
+
             std::vector<int> A;
-            for (int i = 0; i < n; i+=k) {
-                Locales bloque(L.begin()+i, std::min(L.begin()+i+k, L.end()));
-                A.push_back(sub_mayor_beneficio(bloque, 0));
-            }
+            for (int i = 0; i < n; i += k)
+                A.push_back(sub_mayor_beneficio(L, i, std::min(i+k, n)) );
+
+
+
             for (int i = 0; i < A.size(); ++i)
                 A[i] += (i > 0 ? A[i-1] : 0);
             A.insert(A.begin(), 0);
+            return A;
         }
 
         int inf;
@@ -83,9 +86,12 @@ namespace backtracking {
         }
     }
 
-    int mayor_beneficio(const Locales& L, int M) {
+    int mayor_beneficio(const Locales& L, int M, bool cota, int k) {
         inf = greedy::mayor_beneficio(L, M);
-        sup = cota_superior_2(L);
+        if (cota)
+            sup = cota_superior_2(L, k);
+        else
+            sup = cota_superior(L);
         mayor_beneficio_R(L, 0, {0, M});
         return inf;
     }

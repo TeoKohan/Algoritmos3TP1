@@ -57,9 +57,9 @@ int resolver_greedy(Locales L, int M, bool log = true) {
     return res;
 }
 
-int resolver_bck(Locales L, int M, bool log = true) {
+int resolver_bck(Locales L, int M, bool cota, int k, bool log = true) {
     auto start = std::chrono::high_resolution_clock::now();
-    int res = backtracking::mayor_beneficio(L, M);
+    int res = backtracking::mayor_beneficio(L, M, cota, k);
     auto stop = std::chrono::high_resolution_clock::now();
     auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop-start);
     int duration_int = duration.count();
@@ -102,19 +102,13 @@ int main() {
     //resolver_fb(PROB, PROB_M);
     //resolver_bck(PROB, PROB_M);
     //resolver_bck_n(PROB, PROB_M);
-    resolver_dp(PROB, PROB_M);
+    //resolver_dp(PROB, PROB_M);
 
-    int n = 50;
+    int n = 30;
     float mean = 15;
     float sd = 10;
     float diff = 2;
     auto P = generador::generar_problemas(n, 1000, mean, sd, diff);
-
-    for (int i = 1; i < 30; ++i) {
-        auto K = generador::generar_problemas(n, 1, mean, sd, diff);
-        int fb = resolver_fb(K[0].second, INFINITO, true);
-        auto maxim = resolver_max(i, true);
-    }
 
     for (auto p : P) {
         int M = p.first;
@@ -122,13 +116,12 @@ int main() {
         std::cout << p << std::endl;
         //int fb = resolver_fb(L, M, true);
         //int greed = resolver_greedy(L, M, true);
-        int bck = resolver_bck(L, M, true);
+        int bck1 = resolver_bck(L, M, true, 1, true);
+        int bck2 = resolver_bck(L, M, true, 3, true);
+        int bck3 = resolver_bck(L, M, true, 5, true);
+        int bck4 = resolver_bck(L, M, false, 0, true);
         //int bck_n = resolver_bck_n(L, M, true);
         int dp = resolver_dp(L, M, true);
-        if (bck != dp) {
-            std::cout << "MAL!" << std::endl;
-            std::cin >> M;
-        }
         std::cout << std::endl;
     }
 

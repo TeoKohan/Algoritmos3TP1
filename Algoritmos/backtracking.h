@@ -15,7 +15,7 @@
 #include "greedy.h"
 
 namespace backtracking {
-    int mayor_beneficio(const Locales& L, int M);
+    int mayor_beneficio(const Locales& L, int M, bool cota, int k);
 }
 
 #endif
