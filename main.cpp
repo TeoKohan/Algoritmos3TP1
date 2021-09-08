@@ -27,6 +27,7 @@ int resolver_fb(Locales L, int M, bool log = true) {
     auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop-start);
     int duration_int = duration.count();
 
+    if (log)
     std::cout << "la duracion de FB    es " << duration_int << " con un resultado de " << res << std::endl;
     return res;
 }
@@ -38,6 +39,7 @@ int resolver_greedy(Locales L, int M, bool log = true) {
     auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop-start);
     int duration_int = duration.count();
 
+    if (log)
     std::cout << "la duracion de GREED es " << duration_int << " con un resultado de " << res << std::endl;
     return res;
 }
@@ -49,6 +51,7 @@ int resolver_bck(Locales L, int M, bool log = true) {
     auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop-start);
     int duration_int = duration.count();
 
+    if (log)
     std::cout << "la duracion de BCK   es " << duration_int << " con un resultado de " << res << std::endl;
     return res;
 }
@@ -60,6 +63,7 @@ int resolver_bck_n(Locales L, int M, bool log = true) {
     auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop-start);
     int duration_int = duration.count();
 
+    if (log)
     std::cout << "la duracion de BCK_N es " << duration_int << " con un resultado de " << res << std::endl;
     return res;
 }
@@ -68,23 +72,30 @@ int main() {
 
     //std::cout
 
-    Locales PROB = { {27, 31}, {21, 10}, {22, 25}, {16, 20}, {14, 26}, {2, 1}, {24, 28}, {6, 0}, {25, 34}, {25, 26}, {22, 12}, {22, 16}, {12, 17}, {19, 6}, {21, 26}, {6, 17}, {25, 18}, {24, 20}, {26, 10}, {30, 14} };
-    int PROB_M = 75;
+    Locales PROB = { {9, 56}, {34, 0}, {149, 46}, {69, 13}, {46, 54}, {2, 135}, {97, 227}, {132, 4}, {3, 21}, {12, 60}, {12, 24}, {72, 158}, {72, 3}, {65, 45}, {42, 18}, {80, 100}, {160, 175}, {45, 74}, {143, 96}, {98, 147}, {8, 187}, {154, 86}, {129, 82}, {156, 43}, {112, 4}, {3, 194}, {3, 58}, {54, 112}, {15, 28}, {41, 108}, {57, 42}, {17, 56}, {24, 7}, {32, 82}, {3, 42}, {15, 28}, {152, 73}, {130, 15}, {37, 21}, {85, 52}, {116, 59}, {222, 9}, {199, 139}, {27, 26}, {62, 20}, {36, 9}, {16, 55}, {2, 15}, {114, 100}, {85, 143} };
 
-    int n = 150;
+    int PROB_M = 928;
+
+    //resolver_fb(PROB, PROB_M);
+    resolver_bck(PROB, PROB_M);
+    resolver_bck_n(PROB, PROB_M);
+
+    int n = 50;
     float mean = 20;
-    float sd = 10;
+    float sd = 100;
     float diff = 1;
     auto P = generador::generar_problemas(n, 1000, mean, sd, diff);
+
+
 
     for (auto p : P) {
         int M = p.first;
         auto L = p.second;
         std::cout << p << std::endl;
-        //int fb = resolver_fb(L, M);
-        int greed = resolver_greedy(L, M);
-        int bck = resolver_bck(L, M);
-        int bck_n = resolver_bck_n(L, M);
+        //int fb = resolver_fb(L, M, true);
+        int greed = resolver_greedy(L, M, true);
+        int bck = resolver_bck(L, M, true);
+        int bck_n = resolver_bck_n(L, M, true);
         std::cout << std::endl;
     }
 

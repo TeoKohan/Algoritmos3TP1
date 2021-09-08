@@ -2,6 +2,7 @@
 
 namespace backtracking {
 
+    int c;
     int inf;
     std::vector<int> sup;
 
@@ -60,11 +61,11 @@ namespace backtracking {
         }
 
         int mayor_beneficio_R(const Locales& L, int i, beneficio_contagio A) {
+            c++;
             if (A.contagio < 0)
                 return -INFINITO;
             if (inf < A.beneficio)
                     inf = A.beneficio;
-            //std::cout << "en posicion " << i << " suma " << A << " + " << *(sup.end()-1) << " - " << sup[i/helper::sqrt(L.size())] << " < " << inf << std::endl;
             if (i >= L.size())
                 return 0;
             if (A.beneficio + *(sup.end()-1) - sup[i/helper::sqrt(L.size())] < inf)
@@ -77,7 +78,9 @@ namespace backtracking {
     int mayor_beneficio(const Locales& L, int M) {
         inf = greedy::mayor_beneficio(L, M);
         sup = cota_superior(L, 0, L.size());
+        c = 0;
         mayor_beneficio_R(L, 0, {0, M});
+        //std::cout << "llamados: " << c << std::endl;
         return inf;
     }
 }

@@ -97,7 +97,7 @@
 1630897973 source:c:\users\teoko\desktop\algoritmos3tp1\utilidades\helper.cpp
 	"helper.h"
 
-1631065994 source:c:\users\teoko\desktop\algoritmos3tp1\algoritmos\backtracking.cpp
+1631069297 source:c:\users\teoko\desktop\algoritmos3tp1\algoritmos\backtracking.cpp
 	"backtracking.h"
 
 1631065788 c:\users\teoko\desktop\algoritmos3tp1\algoritmos\backtracking.h
@@ -112,7 +112,7 @@
 	"configuraciones.h"
 	"greedy.h"
 
-1631065246 source:c:\users\teoko\desktop\algoritmos3tp1\main.cpp
+1631073905 source:c:\users\teoko\desktop\algoritmos3tp1\main.cpp
 	<iostream>
 	<fstream>
 	<chrono>
@@ -143,7 +143,7 @@
 	<stdlib.h>
 	"../Tipos/Tipos.h"
 
-1631066124 source:c:\users\teoko\desktop\algoritmos3tp1\algoritmos\backtracking_naif.cpp
+1631069054 source:c:\users\teoko\desktop\algoritmos3tp1\algoritmos\backtracking_naif.cpp
 	"backtracking_naif.h"
 
 1631065278 c:\users\teoko\desktop\algoritmos3tp1\algoritmos\backtracking_naif.h
@@ -174,6 +174,17 @@
 	"greedy.h"
 
 1631064889 c:\users\teoko\desktop\algoritmos3tp1\algoritmos\greedy.h
+	<set>
+	<vector>
+	<utility>
+	<algorithm>
+	<functional>
+	"../Tipos/Tipos.h"
+
+1631073806 source:c:\users\teoko\desktop\algoritmos3tp1\algoritmos\dinamica.cpp
+	"dinamica.h"
+
+1631069181 c:\users\teoko\desktop\algoritmos3tp1\algoritmos\dinamica.h
 	<set>
 	<vector>
 	<utility>
