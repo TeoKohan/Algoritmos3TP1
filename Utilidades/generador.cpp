@@ -25,4 +25,9 @@ namespace generador {
             P[i] = generar_problema(n, densidad, varianza, dificultad, seed(rd));
         return P;
     }
+
+    Problema dp_peor_caso(int n) {
+        Locales L(n, Local(1, 1));
+        return Problema(n, L);
+    }
 }

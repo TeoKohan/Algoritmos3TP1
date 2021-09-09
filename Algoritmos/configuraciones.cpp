@@ -17,15 +17,14 @@ namespace configuraciones {
          */
         void configuraciones (int i, std::vector<bool>& V, std::set<std::vector<bool>>& T) {
             if (i < 0) {
-                if (!fuerza_bruta::adyacentes(V) && fuerza_bruta::espacio(V) == V.size())
-                    T.insert(V);
+                T.insert(V);
                 return;
             }
-            if (i+1 < V.size() || V[i+1] || V[i+2]) {
+            if ( (i > 0 || V[1] == 1) && ((i+1 > V.size() || V[i+1]) || (i+2 < V.size() && V[i+2]))) {
                 V[i] = false;
                 configuraciones(i-1, V, T);
             }
-            if (i < V.size() || !V[i+1]) {
+            if (i > V.size() || !V[i+1]) {
                 V[i] = true;
                 configuraciones(i-1, V, T);
             }

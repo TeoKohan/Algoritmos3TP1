@@ -6,7 +6,7 @@
 
 namespace fuerza_bruta {
 
-    int espacio(const std::vector<bool>& V);
+    bool espacio(const std::vector<bool>& V);
 
     bool adyacentes(const std::vector<bool>& V);
 

@@ -1,3 +1,6 @@
+#ifndef GEN_NPM
+#define GEN_NPM
+
 #include <iostream>
 #include <iomanip>
 #include <string>
@@ -12,4 +15,7 @@ namespace generador {
 
     Problema generar_problema(int n, float densidad, float varianza, float dificultad, std::random_device rd);
     std::vector<Problema> generar_problemas (int n, int N, float densidad, float varianza, float dificultad);
+    Problema dp_peor_caso(int n);
 }
+
+#endif

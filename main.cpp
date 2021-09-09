@@ -5,6 +5,7 @@
 #include "Tipos/Tipos.h"
 #include "Utilidades/salida_consola.hpp"
 #include "Utilidades/generador.h"
+#include "Utilidades/experimentos.h"
 
 #include "Algoritmos/fuerza_bruta.h"
 #include "Algoritmos/greedy.h"
@@ -59,7 +60,7 @@ int resolver_greedy(Locales L, int M, bool log = true) {
 
 int resolver_bck(Locales L, int M, bool cota, int k, bool log = true) {
     auto start = std::chrono::high_resolution_clock::now();
-    int res = backtracking::mayor_beneficio(L, M, cota, k);
+    int res = backtracking::mayor_beneficio(L, M);
     auto stop = std::chrono::high_resolution_clock::now();
     auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop-start);
     int duration_int = duration.count();
@@ -104,11 +105,14 @@ int main() {
     //resolver_bck_n(PROB, PROB_M);
     //resolver_dp(PROB, PROB_M);
 
-    int n = 30;
-    float mean = 15;
+    int n = 10;
+    float mean = 500;
     float sd = 10;
-    float diff = 2;
+    float diff = 0.05;
+
     auto P = generador::generar_problemas(n, 1000, mean, sd, diff);
+
+    experimentos::peor_caso_dp(4000);
 
     for (auto p : P) {
         int M = p.first;
@@ -116,12 +120,11 @@ int main() {
         std::cout << p << std::endl;
         //int fb = resolver_fb(L, M, true);
         //int greed = resolver_greedy(L, M, true);
-        int bck1 = resolver_bck(L, M, true, 1, true);
-        int bck2 = resolver_bck(L, M, true, 3, true);
-        int bck3 = resolver_bck(L, M, true, 5, true);
-        int bck4 = resolver_bck(L, M, false, 0, true);
-        //int bck_n = resolver_bck_n(L, M, true);
+        int bck = resolver_bck(L, M, false, 0, true);
+        int bck_n = resolver_bck_n(L, M, true);
         int dp = resolver_dp(L, M, true);
+        if (dp != bck)
+            std::cin >> M;
         std::cout << std::endl;
     }
 

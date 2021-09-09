@@ -2,11 +2,15 @@
 
 namespace fuerza_bruta {
 
-    int espacio(const std::vector<bool>& V) {
+    namespace {
+        const int INFINITO = INT_MAX;
+    }
+
+    bool espacio(const std::vector<bool>& V) {
         int i = 0;
         while (i < V.size() && ((i > 0 && V[i-1]) || V[i] || (i+1 < V.size() && V[i+1])))
             i++;
-        return i;
+        return i < V.size();
     }
 
     bool adyacentes(const std::vector<bool>& V) {

@@ -2,8 +2,9 @@
 
 namespace backtracking_naif {
 
+
+    const int INFINITO = INT_MAX;
     int inf;
-    int c;
 
     namespace {
         int cota_inferior (const Locales& L, int i, int j, int M) {
