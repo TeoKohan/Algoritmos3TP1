@@ -29,10 +29,10 @@ namespace helper{
      *    sqrt(24) = 4
      *    sqrt(25) = 5
      */
-    beneficio_contagio producto_interno (const std::vector<beneficio_contagio>& lhs, const std::vector<bool>& rhs) {
+    beneficio_contagio producto_interno (const std::vector<beneficio_contagio>& L, int l, int r, const std::vector<bool>& rhs) {
         beneficio_contagio res = {0, 0};
-        for (int i = 0; i < lhs.size(); ++i)
-            res += lhs[i] * rhs[i];
+        for (int i = l; i < r; ++i)
+            res += *(L.begin()+i) * rhs[i-l];
         return res;
     }
 }
