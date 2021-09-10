@@ -45,6 +45,8 @@
 		<Unit filename="Algoritmos/greedy.h" />
 		<Unit filename="Experimentos/complejidad_fb.cpp" />
 		<Unit filename="Experimentos/experimentos.h" />
+		<Unit filename="Experimentos/longitud_bloque_alta_var.cpp" />
+		<Unit filename="Experimentos/longitud_bloque_alta_var.h" />
 		<Unit filename="Experimentos/longitud_bloque_baja_var.cpp" />
 		<Unit filename="Experimentos/longitud_bloque_baja_var.h" />
 		<Unit filename="Experimentos/solver.cpp" />
