@@ -15,22 +15,22 @@ namespace experimentos {
         return;
     }
 
-    void resolver_bck(Problema& P, int& res, int& tiempo) {
+    void resolver_bck(Problema& P, int& res, long long int& tiempo) {
         auto start = std::chrono::high_resolution_clock::now();
         res = backtracking::mayor_beneficio(P.second, P.first);
         auto stop = std::chrono::high_resolution_clock::now();
-        auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop-start);
+        auto duration = std::chrono::duration_cast<std::chrono::nanoseconds>(stop-start);
         tiempo = duration.count();
 
         return;
     }
 
 
-    void resolver_dp(Problema& P, int& res, int& tiempo) {
+    void resolver_dp(Problema& P, int& res, long long int& tiempo) {
         auto start = std::chrono::high_resolution_clock::now();
         res = dinamica::mayor_beneficio(P.second, P.first);
         auto stop = std::chrono::high_resolution_clock::now();
-        auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop-start);
+        auto duration = std::chrono::duration_cast<std::chrono::nanoseconds>(stop-start);
         tiempo = duration.count();
 
         return;
@@ -62,14 +62,14 @@ namespace experimentos {
         return true;
     }
 
-    bool peor_caso_bck (int n) {
+    bool caso_medio_bck (int n) {
         std::ofstream bck;
-        bck.open ("Output/peor_caso_bck.csv");
+        bck.open ("Output/caso_promedio_ambas_podas_bck.csv");
         long long int t;
         int res, porcentaje = 0;
         bck << "n, tiempo_bck" << std::endl;
         for (int i = 1; i <= n; ++i) {
-            auto P = generador::uniforme(i, 0);
+            auto P = generador::creciente(i);
             long long int t_sum = 0;
             int samples = std::max(1, (int)(std::pow(2, 20) / std::pow(2, i)));
 
@@ -87,10 +87,36 @@ namespace experimentos {
         return true;
     }
 
+    bool peor_caso_bck (int n) {
+        std::ofstream bck;
+        bck.open ("Output/peor_caso_bck.csv");
+        long long int t;
+        int res, porcentaje = 0;
+        bck << "n, tiempo_bck" << std::endl;
+        for (int i = 2; i <= n; ++i) {
+            auto P = generador::uniforme(i, 0);
+            long long int t_sum = 0;
+            int samples = std::max(1, (int)(std::pow(2, 20) / std::pow(2, i)));
+
+            for (int j = 0; j < samples; ++j) {
+                resolver_bck(P, res, t);
+                t_sum += t / samples;
+            }
+            bck << i << ", " << t_sum << std::endl;
+            if (i*100/n > porcentaje) {
+                porcentaje = i*100/n;
+                std::cout << porcentaje << '%';
+            }
+        }
+        bck.close();
+        return true;
+    }
+
     bool peor_caso_dp(int n) {
         std::ofstream dp_p;
         dp_p.open ("Output/dp_peor_caso.csv");
-        int res, t, porcentaje = 0;
+        int res, porcentaje = 0;
+        long long int t;
         dp_p << "n, tiempo" << std::endl;
         for (int i = 1; i <= n; ++i) {
             auto P = generador::uniforme(i);

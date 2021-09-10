@@ -38,6 +38,13 @@ namespace generador {
         return Problema(std::pow(2, n), L);
     }
 
+    Problema creciente(int n, float p) {
+        Locales L;
+        for (int i = 1; i <= n+1; ++i)
+            L.push_back(Local(i, i));
+        return Problema((int)(p * ((n) * (n+1)) / 2), L);
+    }
+
     Problema uniforme(int n, int v) {
         Locales L(n, Local(v, v));
         return Problema(n * v, L);
