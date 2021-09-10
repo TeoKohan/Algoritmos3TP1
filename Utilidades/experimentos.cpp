@@ -75,9 +75,9 @@ namespace experimentos {
 
             for (int j = 0; j < samples; ++j) {
                 resolver_bck(P, res, t);
-                t_sum += t / samples;
+                t_sum += t;
             }
-            bck << i << ", " << t_sum << std::endl;
+            bck << i << ", " << (float)t_sum/samples << std::endl;
             if (i*100/n > porcentaje) {
                 porcentaje = i*100/n;
                 std::cout << porcentaje << '%';
