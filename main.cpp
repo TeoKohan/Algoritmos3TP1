@@ -113,7 +113,7 @@ int main() {
     auto P = generador::generar_problemas(n, 1000, mean, sd, diff);
 
     //experimentos::peor_caso_dp(4000);
-    experimentos::complejidad_bf(100);
+    experimentos::peor_caso_bck(100);
 
     for (auto p : P) {
         int M = p.first;

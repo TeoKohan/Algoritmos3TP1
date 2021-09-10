@@ -19,6 +19,7 @@
 namespace experimentos {
     bool comparacion_bf_bck(int n);
     bool comparacion_bck_dp(int M);
+    bool peor_caso_bck (int n);
     bool peor_caso_dp(int n);
     bool complejidad_bf(int n);
 }

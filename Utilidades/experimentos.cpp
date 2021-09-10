@@ -67,7 +67,7 @@ namespace experimentos {
         bck.open ("Output/peor_caso_bck.csv");
         long long int t;
         int res, porcentaje = 0;
-        bf << "n, tiempo_fb, tiempo_esperado" << std::endl;
+        bck << "n, tiempo_bck" << std::endl;
         for (int i = 1; i <= n; ++i) {
             auto P = generador::uniforme(i, 0);
             long long int t_sum = 0;
