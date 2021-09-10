@@ -40,7 +40,7 @@ namespace generador {
 
     Problema creciente(int n, float p) {
         Locales L;
-        for (int i = 1; i <= n+1; ++i)
+        for (int i = 1; i <= n; ++i)
             L.push_back(Local(i, i));
         return Problema((int)(p * ((n) * (n+1)) / 2), L);
     }

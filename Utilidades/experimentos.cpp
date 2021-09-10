@@ -5,10 +5,10 @@ namespace experimentos {
     namespace {
 
     void resolver_bf(Problema& P, int& res, long long int& tiempo) {
-        auto start = std::chrono::high_resolution_clock::now();
+        auto start = std::chrono::steady_clock::now();
         std::vector<bool> V(P.second.size());
         res = fuerza_bruta::mayor_beneficio(P.second, 0, P.first, V);
-        auto stop = std::chrono::high_resolution_clock::now();
+        auto stop = std::chrono::steady_clock::now();
         auto duration = std::chrono::duration_cast<std::chrono::nanoseconds>(stop-start);
         tiempo = duration.count();
 
@@ -16,9 +16,9 @@ namespace experimentos {
     }
 
     void resolver_bck(Problema& P, int& res, long long int& tiempo) {
-        auto start = std::chrono::high_resolution_clock::now();
+        auto start = std::chrono::steady_clock::now();
         res = backtracking::mayor_beneficio(P.second, P.first);
-        auto stop = std::chrono::high_resolution_clock::now();
+        auto stop = std::chrono::steady_clock::now();
         auto duration = std::chrono::duration_cast<std::chrono::nanoseconds>(stop-start);
         tiempo = duration.count();
 
@@ -27,9 +27,9 @@ namespace experimentos {
 
 
     void resolver_dp(Problema& P, int& res, long long int& tiempo) {
-        auto start = std::chrono::high_resolution_clock::now();
+        auto start = std::chrono::steady_clock::now();
         res = dinamica::mayor_beneficio(P.second, P.first);
-        auto stop = std::chrono::high_resolution_clock::now();
+        auto stop = std::chrono::steady_clock::now();
         auto duration = std::chrono::duration_cast<std::chrono::nanoseconds>(stop-start);
         tiempo = duration.count();
 
@@ -64,23 +64,28 @@ namespace experimentos {
 
     bool caso_medio_bck (int n) {
         std::ofstream bck;
-        bck.open ("Output/caso_promedio_poda_optimalidad.csv");
+        bck.open ("Output/bck_ambas_podas.csv");
         long long int t;
         int res, porcentaje = 0;
         bck << "n, tiempo_bck" << std::endl;
         for (int i = 1; i <= n; ++i) {
             auto P = generador::creciente(i);
             long long int t_sum = 0;
-            int samples = std::max(1, (int)(std::pow(2, 20) / std::pow(2, i)));
+
+            int samples = 1;
 
             for (int j = 0; j < samples; ++j) {
                 resolver_bck(P, res, t);
                 t_sum += t;
+                if ((j*10)%samples == 0)
+                    std::cout << t_sum/(j+1) << "nano" << std::endl;
             }
-            bck << i << ", " << (float)t_sum/samples << std::endl;
+            std::cout << " bck: " << res << "  -  dp: " << dinamica::mayor_beneficio(P.second, P.first) << std::endl;
+
+            bck << i << ", " << t_sum << std::endl;
             if (i*100/n > porcentaje) {
                 porcentaje = i*100/n;
-                std::cout << porcentaje << '%';
+                std::cout << porcentaje << '%' << "   ";
             }
         }
         bck.close();

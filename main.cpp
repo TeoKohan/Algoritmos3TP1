@@ -22,9 +22,9 @@ std::ostream& operator << (std::ostream& os, const Problema& p) {
 }
 
 std::set<std::vector<bool>> resolver_max(int n, bool log = true) {
-    auto start = std::chrono::high_resolution_clock::now();
+    auto start = std::chrono::steady_clock::now();
     auto res = configuraciones::configuraciones_maximas(n);
-    auto stop = std::chrono::high_resolution_clock::now();
+    auto stop = std::chrono::steady_clock::now();
     auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop-start);
     int duration_int = duration.count();
 
@@ -34,10 +34,10 @@ std::set<std::vector<bool>> resolver_max(int n, bool log = true) {
 }
 
 int resolver_fb(Locales L, int M, bool log = true) {
-    auto start = std::chrono::high_resolution_clock::now();
+    auto start = std::chrono::steady_clock::now();
     std::vector<bool> V(L.size());
     int res = fuerza_bruta::mayor_beneficio(L, 0, M, V);
-    auto stop = std::chrono::high_resolution_clock::now();
+    auto stop = std::chrono::steady_clock::now();
     auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop-start);
     int duration_int = duration.count();
 
@@ -47,9 +47,9 @@ int resolver_fb(Locales L, int M, bool log = true) {
 }
 
 int resolver_greedy(Locales L, int M, bool log = true) {
-    auto start = std::chrono::high_resolution_clock::now();
+    auto start = std::chrono::steady_clock::now();
     int res = greedy::mayor_beneficio(L, M);
-    auto stop = std::chrono::high_resolution_clock::now();
+    auto stop = std::chrono::steady_clock::now();
     auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop-start);
     int duration_int = duration.count();
 
@@ -59,9 +59,9 @@ int resolver_greedy(Locales L, int M, bool log = true) {
 }
 
 int resolver_bck(Locales L, int M, bool cota, int k, bool log = true) {
-    auto start = std::chrono::high_resolution_clock::now();
+    auto start = std::chrono::steady_clock::now();
     int res = backtracking::mayor_beneficio(L, M);
-    auto stop = std::chrono::high_resolution_clock::now();
+    auto stop = std::chrono::steady_clock::now();
     auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop-start);
     int duration_int = duration.count();
 
@@ -71,9 +71,9 @@ int resolver_bck(Locales L, int M, bool cota, int k, bool log = true) {
 }
 
 int resolver_bck_n(Locales L, int M, bool log = true) {
-    auto start = std::chrono::high_resolution_clock::now();
+    auto start = std::chrono::steady_clock::now();
     int res = backtracking_naif::mayor_beneficio(L, M);
-    auto stop = std::chrono::high_resolution_clock::now();
+    auto stop = std::chrono::steady_clock::now();
     auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop-start);
     int duration_int = duration.count();
 
@@ -83,9 +83,9 @@ int resolver_bck_n(Locales L, int M, bool log = true) {
 }
 
 int resolver_dp(Locales L, int M, bool log = true) {
-    auto start = std::chrono::high_resolution_clock::now();
+    auto start = std::chrono::steady_clock::now();
     int res = dinamica::mayor_beneficio(L, M);
-    auto stop = std::chrono::high_resolution_clock::now();
+    auto stop = std::chrono::steady_clock::now();
     auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop-start);
     int duration_int = duration.count();
 
@@ -105,10 +105,10 @@ int main() {
     //resolver_bck_n(PROB, PROB_M);
     //resolver_dp(PROB, PROB_M);
 
-    int n = 10;
-    float mean = 500;
+    int n = 100;
+    float mean = 50;
     float sd = 10;
-    float diff = 0.05;
+    float diff = 5;
 
     auto P = generador::generar_problemas(n, 1000, mean, sd, diff);
 
@@ -122,7 +122,7 @@ int main() {
         //int fb = resolver_fb(L, M, true);
         //int greed = resolver_greedy(L, M, true);
         int bck = resolver_bck(L, M, false, 0, true);
-        int bck_n = resolver_bck_n(L, M, true);
+        //int bck_n = resolver_bck_n(L, M, true);
         int dp = resolver_dp(L, M, true);
         if (dp != bck)
             std::cin >> M;

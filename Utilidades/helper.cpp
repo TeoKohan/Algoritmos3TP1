@@ -9,6 +9,8 @@ namespace helper{
      *    sqrt(25) = 5
      */
     int sqrt (int n) {
+        if (n <= 1)
+            return n;
         int  i = 0;
         int  j = n ;
         while (j > i+1) {
