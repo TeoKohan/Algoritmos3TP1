@@ -100,10 +100,11 @@
 1631243923 source:c:\users\teoko\desktop\algoritmos3tp1\utilidades\helper.cpp
 	"helper.h"
 
-1631244046 source:c:\users\teoko\desktop\algoritmos3tp1\algoritmos\backtracking.cpp
+1631255447 source:c:\users\teoko\desktop\algoritmos3tp1\algoritmos\backtracking.cpp
 	"backtracking.h"
+	<cmath>
 
-1631133431 c:\users\teoko\desktop\algoritmos3tp1\algoritmos\backtracking.h
+1631255462 c:\users\teoko\desktop\algoritmos3tp1\algoritmos\backtracking.h
 	<iostream>
 	<set>
 	<vector>
@@ -115,7 +116,7 @@
 	"configuraciones.h"
 	"greedy.h"
 
-1631245194 source:c:\users\teoko\desktop\algoritmos3tp1\main.cpp
+1631254394 source:c:\users\teoko\desktop\algoritmos3tp1\main.cpp
 	<iostream>
 	<fstream>
 	<chrono>
@@ -135,10 +136,10 @@
 	<vector>
 	"../Tipos/Tipos.h"
 
-1631243673 source:c:\users\teoko\desktop\algoritmos3tp1\utilidades\generador.cpp
+1631254372 source:c:\users\teoko\desktop\algoritmos3tp1\utilidades\generador.cpp
 	"generador.h"
 
-1631237732 c:\users\teoko\desktop\algoritmos3tp1\utilidades\generador.h
+1631254383 c:\users\teoko\desktop\algoritmos3tp1\utilidades\generador.h
 	<iostream>
 	<iomanip>
 	<string>
@@ -204,7 +205,7 @@
 	"../Tipos/tipos.h"
 	<vector>
 
-1631245527 source:c:\users\teoko\desktop\algoritmos3tp1\utilidades\experimentos.cpp
+1631254433 source:c:\users\teoko\desktop\algoritmos3tp1\utilidades\experimentos.cpp
 	"experimentos.h"
 
 1631238069 c:\users\teoko\desktop\algoritmos3tp1\utilidades\experimentos.h

@@ -45,8 +45,8 @@ namespace generador {
         return Problema((int)(p * ((n) * (n+1)) / 2), L);
     }
 
-    Problema uniforme(int n, int v) {
+    Problema uniforme(int n, int v, float p) {
         Locales L(n, Local(v, v));
-        return Problema(n * v, L);
+        return Problema(p * n * v, L);
     }
 }
