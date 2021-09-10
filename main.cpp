@@ -5,13 +5,16 @@
 #include "Tipos/Tipos.h"
 #include "Utilidades/salida_consola.hpp"
 #include "Utilidades/generador.h"
-#include "Experimentos/longitud_bloque_baja_var.h"
 
 #include "Algoritmos/fuerza_bruta.h"
 #include "Algoritmos/greedy.h"
 #include "Algoritmos/backtracking.h"
 #include "Algoritmos/backtracking_naif.h"
 #include "Algoritmos/dinamica.h"
+
+#include "Experimentos/longitud_bloque_baja_var.h"
+#include "Experimentos/longitud_bloque_alta_var.h"
+
 
 std::ostream& operator << (std::ostream& os, const Problema& p) {
     os << "Problema [";
@@ -40,7 +43,9 @@ int main() {
     auto P = generador::generar_problemas(n, 1000, mean, sd, diff);
 
     //experimentos::peor_caso_dp(4000);
-    experimentos::longitud_bloque_baja_var(100);
+    //experimentos::longitud_bloque_baja_var(100);
+    experimentos::longitud_bloque_alta_var(100);
+
 
     for (auto p : P) {
         int M = p.first;
