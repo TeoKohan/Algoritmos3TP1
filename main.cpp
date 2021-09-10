@@ -105,15 +105,15 @@ int main() {
     //resolver_bck_n(PROB, PROB_M);
     //resolver_dp(PROB, PROB_M);
 
-    int n = 200;
+    int n = 100;
     float mean = 50;
-    float sd = 10;
-    float diff = 1.41;
+    float sd = 0;
+    float diff = 0.01;
 
     auto P = generador::generar_problemas(n, 1000, mean, sd, diff);
 
     //experimentos::peor_caso_dp(4000);
-    experimentos::caso_medio_bck(100);
+    //experimentos::caso_medio_bck(200);
 
     for (auto p : P) {
         int M = p.first;
@@ -123,9 +123,9 @@ int main() {
         //int greed = resolver_greedy(L, M, true);
         int bck = resolver_bck(L, M, false, 0, true);
         //int bck_n = resolver_bck_n(L, M, true);
-        //int dp = resolver_dp(L, M, true);
-        //if (dp != bck)
-            //std::cin >> M;
+        int dp = resolver_dp(L, M, true);
+        if (dp != bck)
+            std::cin >> M;
         std::cout << std::endl;
     }
 

@@ -25,9 +25,9 @@ namespace experimentos {
         return;
     }
 
-    void resolver_bck(Problema& P, int& res, long long int& tiempo, int B) {
+    void resolver_bck(Problema& P, int& res, long long int& tiempo) {
         auto start = std::chrono::steady_clock::now();
-        res = backtracking::mayor_beneficio(P.second, P.first, B);
+        res = backtracking::mayor_beneficio(P.second, P.first);
         auto stop = std::chrono::steady_clock::now();
         auto duration = std::chrono::duration_cast<std::chrono::nanoseconds>(stop-start);
         tiempo = duration.count();
@@ -74,19 +74,25 @@ namespace experimentos {
 
     bool caso_medio_bck (int n) {
         std::ofstream bck;
-        bck.open ("Output/bck_tam_bloque.csv");
+        bck.open ("Output/bck_ambas_podas.csv");
         long long int t;
         int res, porcentaje = 0;
         bck << "n, tiempo_bck" << std::endl;
         for (int i = 1; i <= n; ++i) {
-            auto P = generador::uniforme(i);
-            bck << i;
-            for (int j = 1; j <= i; ++j) {
-                resolver_bck(P, res, t, j);
-                bck << ", " << t;
+            auto P = generador::creciente(i);
+            long long int t_sum = 0;
+
+            int samples = 1;
+
+            for (int j = 0; j < samples; ++j) {
+                resolver_bck(P, res, t);
+                t_sum += t;
+                if ((j*10)%samples == 0)
+                    std::cout << t_sum/(j+1) << "nano" << std::endl;
             }
-            bck << std::endl;
             std::cout << " bck: " << res << "  -  dp: " << dinamica::mayor_beneficio(P.second, P.first) << std::endl;
+
+            bck << i << ", " << t_sum << std::endl;
             if (i*100/n > porcentaje) {
                 porcentaje = i*100/n;
                 std::cout << porcentaje << '%' << "   ";
@@ -108,7 +114,7 @@ namespace experimentos {
             int samples = std::max(2, (int)(std::pow(2, 20) / std::pow(2, i)));
 
             for (int j = 0; j < samples; ++j) {
-                resolver_bck(P, res, t, 0);
+                resolver_bck(P, res, t);
                 t_sum += t / samples;
             }
             bck << i << ", " << t_sum << std::endl;

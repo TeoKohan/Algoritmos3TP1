@@ -5,11 +5,9 @@ namespace backtracking {
     namespace {
 
         const int INFINITO = INT_MAX;
-        int largo_del_bloque;
 
         int largo_bloque (int n) {
-            //return helper::sqrt(n);
-            return 5;
+            return 2;
         }
 
         int inf;
@@ -18,7 +16,7 @@ namespace backtracking {
         std::vector<int> cota_superior (const Locales& L) {
 
             int n = L.size();
-            int k = largo_del_bloque;
+            int k = largo_bloque(n);
             auto patrones = configuraciones::configuraciones_maximas(k);
             std::vector<int> A = {0};
 
@@ -40,15 +38,14 @@ namespace backtracking {
                     inf = A.beneficio;
             if (i >= L.size())
                     return 0;
-            if (A.beneficio + *(sup.end()-1) - sup[i/largo_del_bloque] < inf)
+            if (A.beneficio + *(sup.end()-1) - sup[i/largo_bloque(L.size())] < inf)
                 return -INFINITO;
             beneficio_contagio T(L[i].beneficio, -L[i].contagio);
             return std::max(L[i].beneficio + mayor_beneficio_R(L, i+2, A + T), mayor_beneficio_R(L, i+1, A));
         }
     }
 
-    int mayor_beneficio(const Locales& L, int M, int B) {
-        largo_del_bloque = B;
+    int mayor_beneficio(const Locales& L, int M) {
         inf = greedy::mayor_beneficio(L, M);
         sup = cota_superior(L);
         mayor_beneficio_R(L, 0, {0, M});
