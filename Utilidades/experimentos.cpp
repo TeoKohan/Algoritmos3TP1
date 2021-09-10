@@ -74,7 +74,7 @@ namespace experimentos {
             int samples = std::max(1, (int)(std::pow(2, 20) / std::pow(2, i)));
 
             for (int j = 0; j < samples; ++j) {
-                resolver_bf(P, res, t);
+                resolver_bck(P, res, t);
                 t_sum += t / samples;
             }
             bck << i << ", " << t_sum << std::endl;
@@ -96,7 +96,7 @@ namespace experimentos {
         for (int i = 2; i <= n; ++i) {
             auto P = generador::uniforme(i, 0);
             long long int t_sum = 0;
-            int samples = std::max(1, (int)(std::pow(2, 20) / std::pow(2, i)));
+            int samples = std::max(2, (int)(std::pow(2, 20) / std::pow(2, i)));
 
             for (int j = 0; j < samples; ++j) {
                 resolver_bck(P, res, t);

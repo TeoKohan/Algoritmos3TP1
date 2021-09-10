@@ -1,6 +1,11 @@
 #include "greedy.h"
 
 namespace greedy {
+
+    namespace {
+        const int INFINITO = INT_MAX;
+    }
+
     int mayor_beneficio (const Locales& L, int M) {
         int n = L.size();
         std::vector<std::pair<int, Local>> L_prima(n);
@@ -11,6 +16,10 @@ namespace greedy {
 
         std::sort(L_prima.begin(), L_prima.end(),
             [](const std::pair<int, Local>& a, const std::pair<int, Local>& b) {
+                if (a.second.contagio == 0)
+                    return true;
+                if (b.second.contagio == 0)
+                    return false;
                 if ((float)a.second.beneficio/a.second.contagio > (float)b.second.beneficio/b.second.contagio)
                     return true;
                 return false;
