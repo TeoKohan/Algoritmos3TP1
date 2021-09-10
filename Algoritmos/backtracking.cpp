@@ -26,22 +26,25 @@ namespace backtracking {
         }
 
         int mayor_beneficio_R(const Locales& L, int i, beneficio_contagio A) {
-            if (A.contagio < 0)
-                return -INFINITO;
-            //if (inf < A.beneficio)
-                    //inf = A.beneficio;
-            if (i >= L.size())
-                return 0;
-            //if (A.beneficio + *(sup.end()-1) - sup[i/helper::sqrt(L.size())] < inf)
+            //if (A.contagio < 0)
                 //return -INFINITO;
+            if (inf < A.beneficio)
+                    inf = A.beneficio;
+            if (i >= L.size())
+                if (A.contagio < 0)
+                    return -INFINITO;
+                else
+                    return 0;
+            if (A.beneficio + *(sup.end()-1) - sup[i/helper::sqrt(L.size())] < inf)
+                return -INFINITO;
             beneficio_contagio T(L[i].beneficio, -L[i].contagio);
             return std::max(L[i].beneficio + mayor_beneficio_R(L, i+2, A + T), mayor_beneficio_R(L, i+1, A));
         }
     }
 
     int mayor_beneficio(const Locales& L, int M) {
-        //inf = greedy::mayor_beneficio(L, M);
-        //sup = cota_superior(L);
+        inf = greedy::mayor_beneficio(L, M);
+        sup = cota_superior(L);
         mayor_beneficio_R(L, 0, {0, M});
         return inf;
     }

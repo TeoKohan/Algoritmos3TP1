@@ -64,7 +64,7 @@ namespace experimentos {
 
     bool caso_medio_bck (int n) {
         std::ofstream bck;
-        bck.open ("Output/caso_promedio_poda_factibilidad.csv");
+        bck.open ("Output/caso_promedio_poda_optimalidad.csv");
         long long int t;
         int res, porcentaje = 0;
         bck << "n, tiempo_bck" << std::endl;
