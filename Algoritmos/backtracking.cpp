@@ -13,19 +13,15 @@ namespace backtracking {
             int n = L.size();
             int k = helper::sqrt(n);
             auto patrones = configuraciones::configuraciones_maximas(k);
-            std::vector<int> A;
+            std::vector<int> A = {0};
 
             for (int i = 0; i < n; i += k) {
-                std::vector<beneficio_contagio> candidatos;
                 std::vector<beneficio_contagio> bloque(L.begin()+i, L.begin()+std::min(i+k, n));
                 int m = 0;
                 for (auto p : patrones)
                     m = std::max(m, helper::producto_interno(bloque, p).beneficio);
-                A.push_back(m);
+                A.push_back(*(A.end()-1) + m);
             }
-            for (int i = 0; i < A.size(); ++i)
-                A[i] += (i > 0 ? A[i-1] : 0);
-            A.insert(A.begin(), 0);
             return A;
         }
 

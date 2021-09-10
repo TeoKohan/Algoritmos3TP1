@@ -31,6 +31,29 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="Algoritmos/backtracking.cpp" />
+		<Unit filename="Algoritmos/backtracking.h" />
+		<Unit filename="Algoritmos/backtracking_naif.cpp" />
+		<Unit filename="Algoritmos/backtracking_naif.h" />
+		<Unit filename="Algoritmos/configuraciones.cpp" />
+		<Unit filename="Algoritmos/configuraciones.h" />
+		<Unit filename="Algoritmos/dinamica.cpp" />
+		<Unit filename="Algoritmos/dinamica.h" />
+		<Unit filename="Algoritmos/fuerza_bruta.cpp" />
+		<Unit filename="Algoritmos/fuerza_bruta.h" />
+		<Unit filename="Algoritmos/greedy.cpp" />
+		<Unit filename="Algoritmos/greedy.h" />
+		<Unit filename="Tipos/Local.cpp" />
+		<Unit filename="Tipos/Local.h" />
+		<Unit filename="Tipos/tipos.h" />
+		<Unit filename="Utilidades/experimentos.cpp" />
+		<Unit filename="Utilidades/experimentos.h" />
+		<Unit filename="Utilidades/generador.cpp" />
+		<Unit filename="Utilidades/generador.h" />
+		<Unit filename="Utilidades/helper.cpp" />
+		<Unit filename="Utilidades/helper.h" />
+		<Unit filename="Utilidades/salida_consola.hpp" />
+		<Unit filename="main.cpp" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>

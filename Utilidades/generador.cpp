@@ -26,8 +26,20 @@ namespace generador {
         return P;
     }
 
-    Problema dp_peor_caso(int n) {
+    Problema fb_caso(int n) {
         Locales L(n, Local(1, 1));
         return Problema(n, L);
+    }
+
+    Problema bck_vs_dp_caso(int n) {
+        Locales L;
+        for (int i = 0; i < n; ++i)
+            L.push_back(Local(n-i, i));
+        return Problema(std::pow(2, n), L);
+    }
+
+    Problema uniforme(int n, int v) {
+        Locales L(n, Local(v, v));
+        return Problema(n * v, L);
     }
 }
