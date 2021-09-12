@@ -44,8 +44,9 @@ int main() {
 
     //experimentos::peor_caso_dp(4000);
     //experimentos::longitud_bloque_baja_var(100);
-    experimentos::longitud_bloque_alta_var(100);
-
+    //experimentos::longitud_bloque_alta_var(100);
+    experimentos::fb_var_baja(30);
+    experimentos::fb_var_alta(30);
 
     for (auto p : P) {
         int M = p.first;
