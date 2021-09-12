@@ -14,7 +14,8 @@
 
 #include "Experimentos/longitud_bloque_baja_var.h"
 #include "Experimentos/longitud_bloque_alta_var.h"
-
+#include "Experimentos/fb_var_baja.h"
+#include "Experimentos/fb_var_alta.h"
 
 std::ostream& operator << (std::ostream& os, const Problema& p) {
     os << "Problema [";

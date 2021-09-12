@@ -117,7 +117,7 @@
 	"configuraciones.h"
 	"greedy.h"
 
-1631307201 source:c:\users\teoko\desktop\algoritmos3tp1\main.cpp
+1631407246 source:c:\users\teoko\desktop\algoritmos3tp1\main.cpp
 	<iostream>
 	<fstream>
 	<chrono>
@@ -131,6 +131,8 @@
 	"Algoritmos/dinamica.h"
 	"Experimentos/longitud_bloque_baja_var.h"
 	"Experimentos/longitud_bloque_alta_var.h"
+	"Experimentos/fb_var_baja.h"
+	"Experimentos/fb_var_alta.h"
 
 1630906969 c:\users\teoko\desktop\algoritmos3tp1\utilidades\salida_consola.hpp
 	<ostream>
@@ -279,5 +281,14 @@
 	"experimentos.h"
 
 1631307136 c:\users\teoko\desktop\algoritmos3tp1\experimentos\longitud_bloque_alta_var.h
+	"experimentos.h"
+
+1631307286 source:c:\users\teoko\desktop\algoritmos3tp1\experimentos\longitud_bloque_alta_var.cpp
+	"longitud_bloque_baja_var.h"
+
+1631406399 c:\users\teoko\desktop\algoritmos3tp1\experimentos\fb_var_baja.h
+	"experimentos.h"
+
+1631406387 c:\users\teoko\desktop\algoritmos3tp1\experimentos\fb_var_alta.h
 	"experimentos.h"
 
