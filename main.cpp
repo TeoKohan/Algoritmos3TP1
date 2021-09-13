@@ -57,7 +57,7 @@ int main() {
     std::cout << "El tiempo de backtracking es " << t << " con un resultado de " << res << std::endl;
     solver::resolver_dp(P, res, t);
     std::cout << "El tiempo de dinamica es " << t << " con un resultado de " << res << std::endl;
-    return 0;
+
 
     //experimentos::peor_caso_dp(4000);
     //experimentos::longitud_bloque_baja_var(100);
@@ -67,4 +67,6 @@ int main() {
     //experimentos::bck_vs_dp(1000);
     //experimentos::dp_vs_bck(100);
     experimentos::bck_podas(50);
+
+    return 0;
 }

@@ -15,16 +15,20 @@ namespace experimentos {
 
             int samples = 5;
             long long int t_sum = 0;
+            solver::resolver_dp(P, res, t);
+            std::cout << "dp " << res << " ";
             for (int i = 0; i < samples; ++i) {
                 solver::resolver_bck_sin_factibilidad(P, res, t);
                 t_sum += t;
             }
+            std::cout << "sin facti " << res << " ";
             bckpodas << ", " << t_sum / samples;
             t_sum = 0;
             for (int i = 0; i < samples; ++i) {
                 solver::resolver_bck_sin_optimalidad(P, res, t);
                 t_sum += t;
             }
+            std::cout << "sin opti " << res << std::endl;
             bckpodas << ", " << t_sum / samples;
             bckpodas << std::endl;
         }

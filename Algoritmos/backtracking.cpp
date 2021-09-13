@@ -24,6 +24,28 @@ namespace backtracking {
             return A;
         }
 
+        int mayor_beneficio_sin_factibilidad_R(const Locales& L, int i, beneficio_contagio A) {
+            if (inf < A.beneficio && A.contagio >= 0)
+                    inf = A.beneficio;
+            if (i >= L.size())
+                    return (A.contagio < 0 ? -INFINITO : 0);
+            if (A.beneficio + sup[i] <= inf)
+                return -INFINITO;
+            beneficio_contagio T(L[i].beneficio, -L[i].contagio);
+            return std::max(L[i].beneficio + mayor_beneficio_sin_factibilidad_R(L, i+2, A + T), mayor_beneficio_sin_factibilidad_R(L, i+1, A));
+        }
+
+        int mayor_beneficio_sin_optimalidad_R(const Locales& L, int i, beneficio_contagio A) {
+            if (A.contagio < 0)
+                return -INFINITO;
+            if (inf < A.beneficio)
+                    inf = A.beneficio;
+            if (i >= L.size())
+                    return 0;
+            beneficio_contagio T(L[i].beneficio, -L[i].contagio);
+            return std::max(L[i].beneficio + mayor_beneficio_sin_optimalidad_R(L, i+2, A + T), mayor_beneficio_sin_optimalidad_R(L, i+1, A));
+        }
+
         int mayor_beneficio_R(const Locales& L, int i, beneficio_contagio A) {
             if (A.contagio < 0)
                 return -INFINITO;
@@ -41,15 +63,12 @@ namespace backtracking {
     int mayor_beneficio_sin_factibilidad(const Locales& L, int M, std::function<int(int)> largo_bloque) {
         inf = greedy::mayor_beneficio(L, M);
         sup = cota_superior(L, largo_bloque(L.size()));
-        mayor_beneficio_R(L, 0, {0, INFINITO});
+        mayor_beneficio_sin_factibilidad_R(L, 0, {0, M});
         return inf;
     }
 
     int mayor_beneficio_sin_optimalidad(const Locales& L, int M) {
-        inf = 0;
-        sup = std::vector<int>(L.size()+1, INFINITO);
-        mayor_beneficio_R(L, 0, {0, M});
-        return inf;
+        return mayor_beneficio_sin_optimalidad_R(L, 0, {0, M});
     }
 
     int mayor_beneficio(const Locales& L, int M, std::function<int(int)> largo_bloque) {

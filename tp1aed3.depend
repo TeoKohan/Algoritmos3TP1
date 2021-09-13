@@ -101,7 +101,7 @@
 1631300327 source:c:\users\teoko\desktop\algoritmos3tp1\utilidades\helper.cpp
 	"helper.h"
 
-1631495026 source:c:\users\teoko\desktop\algoritmos3tp1\algoritmos\backtracking.cpp
+1631496227 source:c:\users\teoko\desktop\algoritmos3tp1\algoritmos\backtracking.cpp
 	"backtracking.h"
 	<cmath>
 
@@ -117,7 +117,7 @@
 	"configuraciones.h"
 	"greedy.h"
 
-1631494682 source:c:\users\teoko\desktop\algoritmos3tp1\main.cpp
+1631496210 source:c:\users\teoko\desktop\algoritmos3tp1\main.cpp
 	<iostream>
 	<fstream>
 	<chrono>
@@ -133,6 +133,7 @@
 	"Experimentos/fb_var_alta.h"
 	"Experimentos/bck_vs_dp.h"
 	"Experimentos/dp_vs_bck.h"
+	"Experimentos/bck_podas.h"
 	"Experimentos/longitud_bloque_baja_var.h"
 	"Experimentos/longitud_bloque_alta_var.h"
 
@@ -312,6 +313,9 @@
 1631492932 c:\users\teoko\desktop\algoritmos3tp1\experimentos\dp_vs_bck.h
 	"experimentos.h"
 
-1631495430 source:c:\users\teoko\desktop\algoritmos3tp1\experimentos\bck_podas.cpp
+1631496334 source:c:\users\teoko\desktop\algoritmos3tp1\experimentos\bck_podas.cpp
+	"experimentos.h"
+
+1631495329 c:\users\teoko\desktop\algoritmos3tp1\experimentos\bck_podas.h
 	"experimentos.h"
 
