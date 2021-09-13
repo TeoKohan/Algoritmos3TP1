@@ -27,6 +27,8 @@ namespace solver {
 
     void resolver_bf(Problema& P, int& res, long long int& tiempo);
     void resolver_bck_n(Problema& P, int& res, long long int& tiempo);
+    void resolver_bck_sin_factibilidad(Problema& P, int& res, long long int& tiempo, std::function<int(int)> block_size = default_blocksize);
+    void resolver_bck_sin_optimalidad(Problema& P, int& res, long long int& tiempo);
     void resolver_bck(Problema& P, int& res, long long int& tiempo, std::function<int(int)> block_size = default_blocksize);
     void resolver_dp(Problema& P, int& res, long long int& tiempo);
 }

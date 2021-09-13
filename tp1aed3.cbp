@@ -43,6 +43,8 @@
 		<Unit filename="Algoritmos/fuerza_bruta.h" />
 		<Unit filename="Algoritmos/greedy.cpp" />
 		<Unit filename="Algoritmos/greedy.h" />
+		<Unit filename="Experimentos/bck_podas.cpp" />
+		<Unit filename="Experimentos/bck_podas.h" />
 		<Unit filename="Experimentos/bck_vs_dp.cpp" />
 		<Unit filename="Experimentos/bck_vs_dp.h" />
 		<Unit filename="Experimentos/dp_vs_bck.cpp" />

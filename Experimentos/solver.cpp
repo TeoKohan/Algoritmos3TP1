@@ -23,6 +23,26 @@ namespace solver {
         return;
     }
 
+    void resolver_bck_sin_factibilidad(Problema& P, int& res, long long int& tiempo, std::function<int(int)> block_size) {
+        auto start = std::chrono::steady_clock::now();
+        res = backtracking::mayor_beneficio_sin_factibilidad(P.second, P.first, block_size);
+        auto stop = std::chrono::steady_clock::now();
+        auto duration = std::chrono::duration_cast<std::chrono::nanoseconds>(stop-start);
+        tiempo = duration.count();
+
+        return;
+    }
+
+    void resolver_bck_sin_optimalidad(Problema& P, int& res, long long int& tiempo) {
+        auto start = std::chrono::steady_clock::now();
+        res = backtracking::mayor_beneficio_sin_optimalidad(P.second, P.first);
+        auto stop = std::chrono::steady_clock::now();
+        auto duration = std::chrono::duration_cast<std::chrono::nanoseconds>(stop-start);
+        tiempo = duration.count();
+
+        return;
+    }
+
     void resolver_bck(Problema& P, int& res, long long int& tiempo, std::function<int(int)> block_size) {
         auto start = std::chrono::steady_clock::now();
         res = backtracking::mayor_beneficio(P.second, P.first, block_size);

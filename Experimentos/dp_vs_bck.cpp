@@ -12,7 +12,7 @@ namespace experimentos {
         for (int longitud = 1; longitud <= n; ++longitud) {
 
             auto P = generador::bck_vs_dp_caso(longitud, longitud*25);
-            bckvsdp << P.first;
+            bckvsdp << longitud;
 
             int samples = 5;
             long long int t_sum = 0;

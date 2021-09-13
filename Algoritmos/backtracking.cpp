@@ -38,6 +38,20 @@ namespace backtracking {
         }
     }
 
+    int mayor_beneficio_sin_factibilidad(const Locales& L, int M, std::function<int(int)> largo_bloque) {
+        inf = greedy::mayor_beneficio(L, M);
+        sup = cota_superior(L, largo_bloque(L.size()));
+        mayor_beneficio_R(L, 0, {0, INFINITO});
+        return inf;
+    }
+
+    int mayor_beneficio_sin_optimalidad(const Locales& L, int M) {
+        inf = 0;
+        sup = std::vector<int>(L.size()+1, INFINITO);
+        mayor_beneficio_R(L, 0, {0, M});
+        return inf;
+    }
+
     int mayor_beneficio(const Locales& L, int M, std::function<int(int)> largo_bloque) {
         inf = greedy::mayor_beneficio(L, M);
         sup = cota_superior(L, largo_bloque(L.size()));
