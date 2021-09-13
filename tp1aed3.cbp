@@ -45,6 +45,8 @@
 		<Unit filename="Algoritmos/greedy.h" />
 		<Unit filename="Experimentos/bck_vs_dp.cpp" />
 		<Unit filename="Experimentos/bck_vs_dp.h" />
+		<Unit filename="Experimentos/dp_vs_bck.cpp" />
+		<Unit filename="Experimentos/dp_vs_bck.h" />
 		<Unit filename="Experimentos/experimentos.h" />
 		<Unit filename="Experimentos/fb_var_alta.cpp" />
 		<Unit filename="Experimentos/fb_var_alta.h" />

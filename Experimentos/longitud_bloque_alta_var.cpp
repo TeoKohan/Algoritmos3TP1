@@ -15,7 +15,7 @@ namespace experimentos {
             bck << longitud;
             auto P = generador::generar_problema(longitud, 50, 50, 1, 731642);
 
-            int samples = std::max(1, (int)std::pow(2,10 - longitud));
+            int samples = std::max(1, (int)std::pow(2, 10 - longitud));
             for (int bloque = 1; bloque <= longitud; ++bloque) {
                     long long int t_sum = 0;
                     for (int i = 0; i < samples; ++i) {

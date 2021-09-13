@@ -15,6 +15,7 @@
 #include "Experimentos/fb_var_baja.h"
 #include "Experimentos/fb_var_alta.h"
 #include "Experimentos/bck_vs_dp.h"
+#include "Experimentos/dp_vs_bck.h"
 #include "Experimentos/longitud_bloque_baja_var.h"
 #include "Experimentos/longitud_bloque_alta_var.h"
 
@@ -28,9 +29,16 @@ std::ostream& operator << (std::ostream& os, const Problema& p) {
 
 int main() {
 
-    Locales PROB = { {9, 56}, {34, 0}, {149, 46}, {69, 13}, {46, 54}, {2, 135}, {97, 227}, {132, 4}, {3, 21}, {12, 60}, {12, 24}, {72, 158}, {72, 3}, {65, 45}, {42, 18}, {80, 100}, {160, 175}, {45, 74}, {143, 96}, {98, 147}, {8, 187}, {154, 86}, {129, 82}, {156, 43}, {112, 4}, {3, 194}, {3, 58}, {54, 112}, {15, 28}, {41, 108}, {57, 42}, {17, 56}, {24, 7}, {32, 82}, {3, 42}, {15, 28}, {152, 73}, {130, 15}, {37, 21}, {85, 52}, {116, 59}, {222, 9}, {199, 139}, {27, 26}, {62, 20}, {36, 9}, {16, 55}, {2, 15}, {114, 100}, {85, 143} };
-
-    int PROB_M = 928;
+//    fstream input;
+//	input.open("my_file", ios::out);
+//	if (!input) {
+//		cout << "File not created!";
+//	}
+//	else {
+//		cout << "File created successfully!";
+//		input.close();
+//	}
+//	return 0;
 
     //resolver_fb(PROB, PROB_M);
     //resolver_bck(PROB, PROB_M);
@@ -50,6 +58,7 @@ int main() {
     //experimentos::fb_var_baja(30);
     //experimentos::fb_var_alta(30);
     experimentos::bck_vs_dp(1000);
+    experimentos::dp_vs_bck(100);
 
     int r;
     long long int t;
