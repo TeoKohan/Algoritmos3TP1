@@ -105,7 +105,7 @@
 	"backtracking.h"
 	<cmath>
 
-1631302930 c:\users\teoko\desktop\algoritmos3tp1\algoritmos\backtracking.h
+1631489135 c:\users\teoko\desktop\algoritmos3tp1\algoritmos\backtracking.h
 	<iostream>
 	<set>
 	<vector>
@@ -117,7 +117,7 @@
 	"configuraciones.h"
 	"greedy.h"
 
-1631407246 source:c:\users\teoko\desktop\algoritmos3tp1\main.cpp
+1631491271 source:c:\users\teoko\desktop\algoritmos3tp1\main.cpp
 	<iostream>
 	<fstream>
 	<chrono>
@@ -129,10 +129,11 @@
 	"Algoritmos/backtracking.h"
 	"Algoritmos/backtracking_naif.h"
 	"Algoritmos/dinamica.h"
-	"Experimentos/longitud_bloque_baja_var.h"
-	"Experimentos/longitud_bloque_alta_var.h"
 	"Experimentos/fb_var_baja.h"
 	"Experimentos/fb_var_alta.h"
+	"Experimentos/bck_vs_dp.h"
+	"Experimentos/longitud_bloque_baja_var.h"
+	"Experimentos/longitud_bloque_alta_var.h"
 
 1630906969 c:\users\teoko\desktop\algoritmos3tp1\utilidades\salida_consola.hpp
 	<ostream>
@@ -140,10 +141,10 @@
 	<vector>
 	"../Tipos/Tipos.h"
 
-1631304270 source:c:\users\teoko\desktop\algoritmos3tp1\utilidades\generador.cpp
+1631490703 source:c:\users\teoko\desktop\algoritmos3tp1\utilidades\generador.cpp
 	"generador.h"
 
-1631304282 c:\users\teoko\desktop\algoritmos3tp1\utilidades\generador.h
+1631490817 c:\users\teoko\desktop\algoritmos3tp1\utilidades\generador.h
 	<iostream>
 	<iomanip>
 	<string>
@@ -229,7 +230,7 @@
 1631303538 source:c:\users\teoko\desktop\algoritmos3tp1\experimentos\solver.cpp
 	"solver.h"
 
-1631303879 c:\users\teoko\desktop\algoritmos3tp1\experimentos\solver.h
+1631489192 c:\users\teoko\desktop\algoritmos3tp1\experimentos\solver.h
 	<functional>
 	<iostream>
 	<fstream>
@@ -271,7 +272,7 @@
 	"experimentos.h"
 	"longitud_bloque_baja_var.cpp"
 
-1631305422 source:c:\users\teoko\desktop\algoritmos3tp1\experimentos\longitud_bloque_baja_var.cpp
+1631490121 source:c:\users\teoko\desktop\algoritmos3tp1\experimentos\longitud_bloque_baja_var.cpp
 	"longitud_bloque_baja_var.h"
 
 1631305422 c:\users\teoko\desktop\algoritmos3tp1\experimentos\longitud_bloque_baja_var.cpp
@@ -283,12 +284,24 @@
 1631307136 c:\users\teoko\desktop\algoritmos3tp1\experimentos\longitud_bloque_alta_var.h
 	"experimentos.h"
 
-1631307286 source:c:\users\teoko\desktop\algoritmos3tp1\experimentos\longitud_bloque_alta_var.cpp
+1631490120 source:c:\users\teoko\desktop\algoritmos3tp1\experimentos\longitud_bloque_alta_var.cpp
 	"longitud_bloque_baja_var.h"
 
 1631406399 c:\users\teoko\desktop\algoritmos3tp1\experimentos\fb_var_baja.h
 	"experimentos.h"
 
 1631406387 c:\users\teoko\desktop\algoritmos3tp1\experimentos\fb_var_alta.h
+	"experimentos.h"
+
+1631488607 source:c:\users\teoko\desktop\algoritmos3tp1\experimentos\fb_var_alta.cpp
+	"experimentos.h"
+
+1631488604 source:c:\users\teoko\desktop\algoritmos3tp1\experimentos\fb_var_baja.cpp
+	"experimentos.h"
+
+1631490937 source:c:\users\teoko\desktop\algoritmos3tp1\experimentos\bck_vs_dp.cpp
+	"experimentos.h"
+
+1631488838 c:\users\teoko\desktop\algoritmos3tp1\experimentos\bck_vs_dp.h
 	"experimentos.h"
 

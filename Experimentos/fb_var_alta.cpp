@@ -8,9 +8,9 @@ namespace experimentos {
         int res;
         for (int longitud = 1; longitud <= n; ++longitud) {
             fbvalta << longitud;
-            auto P = generador::generar_problema(longitud, 50, 100, 2, 731642);
+            auto P = generador::generar_problema(longitud, 50, 50, 2, 731642);
 
-            int samples = 1;
+            int samples = std::max(1, (int)std::pow(2,30 - longitud));
             long long int t_sum = 0;
             for (int i = 0; i < samples; ++i) {
                 solver::resolver_bf(P, res, t);

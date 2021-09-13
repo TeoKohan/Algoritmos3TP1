@@ -17,6 +17,7 @@ namespace generador {
     std::vector<Problema> generar_problemas (int n, int N, float densidad, float varianza, float dificultad);
     Problema creciente(int n, float p = 0.5);
     Problema uniforme(int n, int v = 1, float p = 0.5);
+    Problema bck_vs_dp_caso(int n, int M);
 }
 
 #endif

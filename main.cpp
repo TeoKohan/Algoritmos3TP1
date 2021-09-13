@@ -12,10 +12,11 @@
 #include "Algoritmos/backtracking_naif.h"
 #include "Algoritmos/dinamica.h"
 
-#include "Experimentos/longitud_bloque_baja_var.h"
-#include "Experimentos/longitud_bloque_alta_var.h"
 #include "Experimentos/fb_var_baja.h"
 #include "Experimentos/fb_var_alta.h"
+#include "Experimentos/bck_vs_dp.h"
+#include "Experimentos/longitud_bloque_baja_var.h"
+#include "Experimentos/longitud_bloque_alta_var.h"
 
 std::ostream& operator << (std::ostream& os, const Problema& p) {
     os << "Problema [";
@@ -36,26 +37,31 @@ int main() {
     //resolver_bck_n(PROB, PROB_M);
     //resolver_dp(PROB, PROB_M);
 
-    int n = 200;
-    float mean = 50;
-    float sd = 10;
-    float diff = 1;
+    int n = 100;
+    float mean = 1;
+    float sd = 0;
+    float diff = 0.001;
 
     auto P = generador::generar_problemas(n, 1000, mean, sd, diff);
 
     //experimentos::peor_caso_dp(4000);
     //experimentos::longitud_bloque_baja_var(100);
     //experimentos::longitud_bloque_alta_var(100);
-    experimentos::fb_var_baja(30);
-    experimentos::fb_var_alta(30);
+    //experimentos::fb_var_baja(30);
+    //experimentos::fb_var_alta(30);
+    experimentos::bck_vs_dp(1000);
+
+    int r;
+    long long int t;
 
     for (auto p : P) {
         int M = p.first;
         auto L = p.second;
-        std::cout << p << std::endl;
+        //std::cout << p << std::endl;
         //int fb = resolver_fb(L, M, true);
         //int greed = resolver_greedy(L, M, true);
-        //int bck = resolver_bck(L, M, false, 0, true);
+        Problema Prob(M, L);
+        solver::resolver_bck(Prob, r, t);
         //int bck_n = resolver_bck_n(L, M, true);
         //int dp = resolver_dp(L, M, true);
         std::cout << std::endl;

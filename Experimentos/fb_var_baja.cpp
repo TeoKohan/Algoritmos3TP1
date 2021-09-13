@@ -10,7 +10,7 @@ namespace experimentos {
             fbvbaja << longitud;
             auto P = generador::generar_problema(longitud, 50, 1, 2, 731642);
 
-            int samples = 1;
+            int samples = std::max(1, (int)std::pow(2,30 - longitud));
             long long int t_sum = 0;
             for (int i = 0; i < samples; ++i) {
                 solver::resolver_bf(P, res, t);

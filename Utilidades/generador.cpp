@@ -31,11 +31,11 @@ namespace generador {
         return Problema(n, L);
     }
 
-    Problema bck_vs_dp_caso(int n) {
+    Problema bck_vs_dp_caso(int n, int M) {
         Locales L;
         for (int i = 0; i < n; ++i)
-            L.push_back(Local(n-i, i));
-        return Problema(std::pow(2, n), L);
+            L.push_back(Local(50+i%6, 50+i%6));
+        return Problema(M, L);
     }
 
     Problema creciente(int n, float p) {
